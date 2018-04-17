@@ -1,12 +1,11 @@
-package fr.ecole.eni.lokacar.BDDHelper;
+package fr.ecole.eni.lokacar.bddHelper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import fr.ecole.eni.lokacar.Contract.AgenceContract;
-import fr.ecole.eni.lokacar.Contract.DetailsModelContract;
-import fr.ecole.eni.lokacar.Contract.GlobalContract;
+import fr.ecole.eni.lokacar.contract.AgenceContract;
+import fr.ecole.eni.lokacar.contract.GlobalContract;
 
 public class AgenceHelper extends SQLiteOpenHelper {
 

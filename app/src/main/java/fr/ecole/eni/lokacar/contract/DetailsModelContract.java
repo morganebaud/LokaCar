@@ -1,4 +1,4 @@
-package fr.ecole.eni.lokacar.Contract;
+package fr.ecole.eni.lokacar.contract;
 
 public abstract class DetailsModelContract {
     public final static String MODELE_DETAIL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "

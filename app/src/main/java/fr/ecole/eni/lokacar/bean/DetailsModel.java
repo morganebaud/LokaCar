@@ -3,7 +3,7 @@ package fr.ecole.eni.lokacar.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class DetailsModel {
+public class DetailsModel implements Parcelable {
 
     private int Id;
     private double ConsommationExtraUrbaine;
@@ -21,6 +21,35 @@ public class DetailsModel {
     private String Designation;
 
     public DetailsModel() {
+    }
+
+    public DetailsModel(double consommationExtraUrbaine,
+                        String boiteDeVitesse,
+                        int masseMini,
+                        int puissanceAdministrative,
+                        int emissionCo2,
+                        String carrosserie,
+                        String hybride,
+                        String carburant,
+                        double consommationUrbaine,
+                        double consommationMixte,
+                        String codeNationalIdentificationType,
+                        String dateMiseAjour,
+                        String designation
+    ) {
+        ConsommationExtraUrbaine = consommationExtraUrbaine;
+        BoiteDeVitesse = boiteDeVitesse;
+        MasseMini = masseMini;
+        PuissanceAdministrative = puissanceAdministrative;
+        EmissionCo2 = emissionCo2;
+        Carrosserie = carrosserie;
+        Hybride = hybride;
+        Carburant = carburant;
+        ConsommationUrbaine = consommationUrbaine;
+        ConsommationMixte = consommationMixte;
+        CodeNationalIdentificationType = codeNationalIdentificationType;
+        DateMiseAjour = dateMiseAjour;
+        Designation = designation;
     }
 
     /**
@@ -70,6 +99,35 @@ public class DetailsModel {
         DateMiseAjour = dateMiseAjour;
         Designation = designation;
     }
+
+    protected DetailsModel(Parcel in) {
+        Id = in.readInt();
+        ConsommationExtraUrbaine = in.readDouble();
+        BoiteDeVitesse = in.readString();
+        MasseMini = in.readInt();
+        PuissanceAdministrative = in.readInt();
+        EmissionCo2 = in.readInt();
+        Carrosserie = in.readString();
+        Hybride = in.readString();
+        Carburant = in.readString();
+        ConsommationUrbaine = in.readDouble();
+        ConsommationMixte = in.readDouble();
+        CodeNationalIdentificationType = in.readString();
+        DateMiseAjour = in.readString();
+        Designation = in.readString();
+    }
+
+    public static final Creator<DetailsModel> CREATOR = new Creator<DetailsModel>() {
+        @Override
+        public DetailsModel createFromParcel(Parcel in) {
+            return new DetailsModel(in);
+        }
+
+        @Override
+        public DetailsModel[] newArray(int size) {
+            return new DetailsModel[size];
+        }
+    };
 
     public String getDesignation() {
         return Designation;
@@ -183,4 +241,26 @@ public class DetailsModel {
         DateMiseAjour = dateMiseAjour;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(Id);
+        dest.writeDouble(ConsommationExtraUrbaine);
+        dest.writeString(BoiteDeVitesse);
+        dest.writeInt(MasseMini);
+        dest.writeInt(PuissanceAdministrative);
+        dest.writeInt(EmissionCo2);
+        dest.writeString(Carrosserie);
+        dest.writeString(Hybride);
+        dest.writeString(Carburant);
+        dest.writeDouble(ConsommationUrbaine);
+        dest.writeDouble(ConsommationMixte);
+        dest.writeString(CodeNationalIdentificationType);
+        dest.writeString(DateMiseAjour);
+        dest.writeString(Designation);
+    }
 }

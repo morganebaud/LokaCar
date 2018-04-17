@@ -1,4 +1,4 @@
-package fr.ecole.eni.lokacar.Dao;
+package fr.ecole.eni.lokacar.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,13 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.ecole.eni.lokacar.BDDHelper.VoitureHelper;
-import fr.ecole.eni.lokacar.Contract.DetailsModelContract;
-import fr.ecole.eni.lokacar.Contract.ModelContract;
-import fr.ecole.eni.lokacar.Contract.VoitureContract;
+import fr.ecole.eni.lokacar.bddHelper.VoitureHelper;
+import fr.ecole.eni.lokacar.contract.VoitureContract;
 import fr.ecole.eni.lokacar.bean.Agence;
 import fr.ecole.eni.lokacar.bean.DetailsModel;
-import fr.ecole.eni.lokacar.bean.Marque;
 import fr.ecole.eni.lokacar.bean.Model;
 import fr.ecole.eni.lokacar.bean.Voiture;
 
