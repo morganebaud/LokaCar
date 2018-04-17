@@ -10,6 +10,7 @@ import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.adapter.RecycledListAdapter;
+import fr.ecole.eni.lokacar.bean.Marque;
 import fr.ecole.eni.lokacar.bean.Voiture;
 
 public class ListActivity extends AppCompatActivity {
@@ -25,8 +26,8 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         dataSource = new ArrayList<Voiture>();
-        dataSource.add(new Voiture("voiture1"));
-        dataSource.add(new Voiture("voiture2"));
+        dataSource.add(new Voiture(1,"Peugeot",null, null,null,null,null,null,false,null));
+        dataSource.add(new Voiture(2,"Citroen",null, null,null,null,null,null,false,null));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.activityList_modeles);
         mLayoutManager = new LinearLayoutManager(this);
