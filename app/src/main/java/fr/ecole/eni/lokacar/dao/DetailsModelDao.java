@@ -1,12 +1,12 @@
-package fr.ecole.eni.lokacar.Dao;
+package fr.ecole.eni.lokacar.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import fr.ecole.eni.lokacar.BDDHelper.DetailsModelHelper;
-import fr.ecole.eni.lokacar.Contract.DetailsModelContract;
+import fr.ecole.eni.lokacar.bddHelper.DetailsModelHelper;
+import fr.ecole.eni.lokacar.contract.DetailsModelContract;
 import fr.ecole.eni.lokacar.bean.DetailsModel;
 
 public class DetailsModelDao {

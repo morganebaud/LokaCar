@@ -1,15 +1,13 @@
-package fr.ecole.eni.lokacar.Dao;
+package fr.ecole.eni.lokacar.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import fr.ecole.eni.lokacar.BDDHelper.AgenceHelper;
-import fr.ecole.eni.lokacar.Contract.AgenceContract;
-import fr.ecole.eni.lokacar.Contract.ModelContract;
+import fr.ecole.eni.lokacar.bddHelper.AgenceHelper;
+import fr.ecole.eni.lokacar.contract.AgenceContract;
 import fr.ecole.eni.lokacar.bean.Agence;
-import fr.ecole.eni.lokacar.bean.Model;
 
 public class AgenceDao {
 
