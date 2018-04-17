@@ -34,7 +34,7 @@ public class RecycledListAdapter extends Adapter<RecycledListAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //holder.mImageView = mVoitures.get(position).;
-        holder.mModele.setText(mVoitures.get(position).getNom());
+        holder.mModele.setText(mVoitures.get(position).getMarque());
 
     }
 

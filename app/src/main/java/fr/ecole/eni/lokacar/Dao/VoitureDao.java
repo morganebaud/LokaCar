@@ -34,7 +34,7 @@ public class VoitureDao {
          values.put(VoitureContract._PLAQUE , voiture.getPlaque());
          values.put(VoitureContract._PHOTOPATH , voiture.getPhotoPath());
          values.put(VoitureContract._ISDISPO , voiture.isDispo()?1:0);
-         values.put(VoitureContract._MARQUE  , voiture.getMarque().getNom());
+         values.put(VoitureContract._MARQUE  , voiture.getMarque());
          values.put(VoitureContract._CODEAGENCE  , voiture.getAgence().getCodeAgence());
         return values;
     }
@@ -68,8 +68,7 @@ public class VoitureDao {
             do{
 
                 Integer id = cursor.getInt(cursor.getColumnIndex(VoitureContract._VOITURE_ID));
-                Marque marque = new Marque(cursor.getString(cursor.getColumnIndex(VoitureContract._MARQUE)));
-
+                String marque = cursor.getString(cursor.getColumnIndex(VoitureContract._MARQUE));
                 String cnit = cursor.getString(cursor.getColumnIndex(VoitureContract._CNIT));
                 Model model = modelDao.getByCnit(cnit);
                 DetailsModel detailsModel = detailModelDao.getByCnit(cnit);

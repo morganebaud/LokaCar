@@ -11,12 +11,24 @@ public class Voiture {
     private DetailsModel DetailsModel;
     private Agence Agence;
     private Model Model;
-    private Marque Marque;
+    private String Marque;
 
     public Voiture() {
     }
 
-    public Voiture(int id, Marque marque, Model model, DetailsModel detailsModel, String CNIT, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath) {
+    public Voiture(String marque, Model model, DetailsModel detailsModel, String CNIT, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath) {
+        Marque = marque;
+        Model = model;
+        DetailsModel = detailsModel;
+        this.CNIT = CNIT;
+        Prix = prix;
+        Plaque = plaque;
+        Agence = agence;
+        IsDispo = isDispo;
+        PhotoPath = photoPath;
+    }
+
+    public Voiture(int id, String marque, Model model, DetailsModel detailsModel, String CNIT, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath) {
         Id = id;
         Marque = marque;
         Model = model;
@@ -37,11 +49,11 @@ public class Voiture {
         Id = id;
     }
 
-    public Marque getMarque() {
+    public String getMarque() {
         return Marque;
     }
 
-    public void setMarque(Marque marque) {
+    public void setMarque(String marque) {
         Marque = marque;
     }
 
