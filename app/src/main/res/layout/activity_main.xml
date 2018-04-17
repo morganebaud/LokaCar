@@ -3,13 +3,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MainActivity">
+    tools:context=".controller.MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
-
-
-    <Button
+    <!--Button
         android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="go"/>
+        android:text="go"/-->
+
+
+    <TextView
+        android:id="@+id/acitivty_main_tv_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Mail"/>
+
+    <EditText
+        android:id="@+id/activity_main_et_mail"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="text"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/acitivty_main_tv_agence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Agence"/>
+
+    <Spinner
+        android:id="@+id/activity_main_spinner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/acitivty_main_tv_mdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Mot de passe"/>
+
+    <EditText
+        android:id="@+id/activity_main_et_mdp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/acitivty_main_btn_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Connection"
+        android:onClick="ConectionClick"/>
 </LinearLayout>

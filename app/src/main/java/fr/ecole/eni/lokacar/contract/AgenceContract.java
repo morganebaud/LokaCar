@@ -1,4 +1,4 @@
-package fr.ecole.eni.lokacar.Contract;
+package fr.ecole.eni.lokacar.contract;
 
 public class AgenceContract {
 
@@ -13,7 +13,7 @@ public class AgenceContract {
 
 
     public final static String QUERY_DELETE_TABLE_AGENCES = "DROP TABLE IF EXISTS MODELS";
-    public final static String TABLE_AGENCES_NAME = "MODELS";
+    public final static String TABLE_AGENCES_NAME = "AGENCES";
 
     public final static String _AGENCE_ID = "ID";
     public final static String _CODEAGENCE  = "CODEAGENCE";

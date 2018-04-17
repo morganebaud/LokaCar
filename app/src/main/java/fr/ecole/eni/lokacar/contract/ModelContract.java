@@ -1,4 +1,4 @@
-package fr.ecole.eni.lokacar.Contract;
+package fr.ecole.eni.lokacar.contract;
 
 public abstract class ModelContract {
 
