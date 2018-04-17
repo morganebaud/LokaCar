@@ -16,6 +16,7 @@ public class AgenceHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(GlobalContract.AGENCES_CREATE_TABLE);
+        db.execSQL(GlobalContract.SALARIES_CREATE_TABLE);
         db.execSQL(GlobalContract.MODELE_DETAIL_CREATE_TABLE);
         db.execSQL(GlobalContract.MODELS_CREATE_TABLE);
         db.execSQL(GlobalContract.VOITURES_CREATE_TABLE);

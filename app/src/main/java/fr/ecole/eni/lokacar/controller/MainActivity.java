@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         List<Agence> agences = agenceDao.getAll();
 
 
+
         ArrayAdapter<Agence> dataAdapter = new ArrayAdapter<Agence>(this, R.layout.support_simple_spinner_dropdown_item, agences);
 
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -61,11 +63,22 @@ public class MainActivity extends AppCompatActivity {
 
         Salarie salarie = salarieDao.getByMail(mail);
         if (salarie != null && salarie.isGerant()) {
-            if (salarie.getCodeAgence() == agenceSelected.getCodeAgence() && salarie.getMdp() == mdp) {
-                Intent intent = new Intent(MainActivity.this, ListActivity.class);
-                //intent.putExtra("agenceSelected",agenceSelected);
-                startActivity(intent);
+            if (salarie.getCodeAgence() == agenceSelected.getCodeAgence()) {
+                if (salarie.getMdp().equals(mdp)) {
+                    Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                    //intent.putExtra("agenceSelected",agenceSelected);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(this,"le mot de passe n'est pas valide",Toast.LENGTH_LONG).show();
+                }
             }
+            else{
+                Toast.makeText(this,"le salarié n'est pas de cette agence",Toast.LENGTH_LONG).show();
+            }
+        }
+        else{
+            Toast.makeText(this,"le salarié n'est pas un gerant",Toast.LENGTH_LONG).show();
         }
     }
 }

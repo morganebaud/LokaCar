@@ -12,8 +12,9 @@ public abstract class GlobalContract {
             + "NOM TEXT, "
             + "PRENOM TEXT, "
             + "MAIL TEXT, "
-            + "MDP TEXT"
-            + "ISGERANT INTEGER"
+            + "MDP TEXT ,"
+            + "ISGERANT INTEGER ,"
+            + "CODEAGENCE INTEGER"
             + ")";
 
     //AGENCES
@@ -46,7 +47,7 @@ public abstract class GlobalContract {
     //MODELS
     public final static String MODELS_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELS ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY, "
             + "DESIGNATION TEXT,"
             + "MODELE_COMMERCIAL TEXT,"
             + "CNIT TEXT,"
@@ -56,13 +57,13 @@ public abstract class GlobalContract {
     //VOITURES
     public final static String VOITURES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "VOITURES ("
-            + "ID INTEGER PRIMARY KEY , "
-            + "CNIT TEXT , "
-            + "PRIX DOUBLE , "
-            + "PLAQUE TEXT , "
-            + "PHOTOPATH TEXT , "
-            + "ISDISPO INTEGER "
-            + "MARQUE TEXT "
+            + "ID INTEGER PRIMARY KEY, "
+            + "CNIT TEXT, "
+            + "PRIX DOUBLE, "
+            + "PLAQUE TEXT, "
+            + "PHOTOPATH TEXT, "
+            + "ISDISPO INTEGER, "
+            + "MARQUE TEXT, "
             + "CODEAGENCE INTEGER "
             + ")";
 }
