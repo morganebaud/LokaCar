@@ -10,8 +10,8 @@ public abstract class VoitureContract {
             + "PRIX DOUBLE , "
             + "PLAQUE TEXT , "
             + "PHOTOPATH TEXT , "
-            + "ISDISPO INTEGER "
-            + "MARQUE TEXT "
+            + "ISDISPO INTEGER , "
+            + "MARQUE TEXT , "
             + "CODEAGENCE INTEGER "
             + ")";
 

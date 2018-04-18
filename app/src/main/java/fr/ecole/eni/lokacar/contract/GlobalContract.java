@@ -5,7 +5,19 @@ public abstract class GlobalContract {
     public final static String DATABASE_NAME = "LokaCar.db";
     public final static int DATABASE_VERSION = 1;
 
-//AGENCES
+    //SALARIE
+    public final static String SALARIES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
+            + "SALARIES ("
+            + "ID INTEGER PRIMARY KEY , "
+            + "NOM TEXT, "
+            + "PRENOM TEXT, "
+            + "MAIL TEXT, "
+            + "MDP TEXT ,"
+            + "ISGERANT INTEGER ,"
+            + "CODEAGENCE INTEGER"
+            + ")";
+
+    //AGENCES
     public final static String AGENCES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "AGENCES ("
             + "ID INTEGER PRIMARY KEY , "
@@ -14,7 +26,7 @@ public abstract class GlobalContract {
             + "VILLE TEXT, "
             + "CODEPOSTAL TEXT"
             + ")";
-//MODELE_DETAIL
+    //MODELE_DETAIL
     public final static String MODELE_DETAIL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELE_DETAILS ("
             + "ID INTEGER PRIMARY KEY , "
@@ -30,26 +42,28 @@ public abstract class GlobalContract {
             + "CONSOMMATION_URBAINE REAL,"
             + "CONSOMMATION_MIXTE REAL,"
             + "CODE_NATIONAL_IDENTIFICATION_TYPE TEXT,"
-            + "DATE_MISE_A_JOUR TEXT)";
-//MODELS
+            + "DATE_MISE_A_JOUR TEXT"
+            + ")";
+    //MODELS
     public final static String MODELS_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELS ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY, "
             + "DESIGNATION TEXT,"
             + "MODELE_COMMERCIAL TEXT,"
             + "CNIT TEXT,"
             + "MARQUE TEXT,"
-            + "MODELE_DOSSIER TEXT)";
-//VOITURES
+            + "MODELE_DOSSIER TEXT"
+            + ")";
+    //VOITURES
     public final static String VOITURES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "VOITURES ("
-            + "ID INTEGER PRIMARY KEY , "
-            + "CNIT TEXT , "
-            + "PRIX DOUBLE , "
-            + "PLAQUE TEXT , "
-            + "PHOTOPATH TEXT , "
-            + "ISDISPO INTEGER "
-            + "MARQUE TEXT "
+            + "ID INTEGER PRIMARY KEY, "
+            + "CNIT TEXT, "
+            + "PRIX DOUBLE, "
+            + "PLAQUE TEXT, "
+            + "PHOTOPATH TEXT, "
+            + "ISDISPO INTEGER, "
+            + "MARQUE TEXT, "
             + "CODEAGENCE INTEGER "
             + ")";
 }

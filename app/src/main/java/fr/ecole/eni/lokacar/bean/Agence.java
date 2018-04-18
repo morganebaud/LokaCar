@@ -10,6 +10,11 @@ public class Agence {
     public Agence() {
     }
 
+    @Override
+    public String toString() {
+        return Nom ;
+    }
+
     public Agence(int codeAgence, String nom, String ville, String codePostal) {
         CodeAgence = codeAgence;
         Nom = nom;

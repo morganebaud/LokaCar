@@ -1,6 +1,9 @@
 package fr.ecole.eni.lokacar.bean;
 
-public class Voiture {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Voiture implements Parcelable {
     private int Id;
     private String CNIT;
     private Float Prix;
@@ -40,6 +43,53 @@ public class Voiture {
         IsDispo = isDispo;
         PhotoPath = photoPath;
     }
+
+    protected Voiture(Parcel in) {
+        Id = in.readInt();
+        CNIT = in.readString();
+        if (in.readByte() == 0) {
+            Prix = null;
+        } else {
+            Prix = in.readFloat();
+        }
+        Plaque = in.readString();
+        PhotoPath = in.readString();
+        IsDispo = in.readByte() != 0;
+        Marque = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(Id);
+        dest.writeString(CNIT);
+        if (Prix == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeFloat(Prix);
+        }
+        dest.writeString(Plaque);
+        dest.writeString(PhotoPath);
+        dest.writeByte((byte) (IsDispo ? 1 : 0));
+        dest.writeString(Marque);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Voiture> CREATOR = new Creator<Voiture>() {
+        @Override
+        public Voiture createFromParcel(Parcel in) {
+            return new Voiture(in);
+        }
+
+        @Override
+        public Voiture[] newArray(int size) {
+            return new Voiture[size];
+        }
+    };
 
     public int getId() {
         return Id;
