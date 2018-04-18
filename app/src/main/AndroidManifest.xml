@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".controller.ListActivity" />
         <activity android:name=".controller.SearchActivity"></activity>
+        <activity android:name=".controller.DetailActivity"></activity>
+        <activity android:name=".controller.VehiculesActivity"></activity>
     </application>
 
 </manifest>

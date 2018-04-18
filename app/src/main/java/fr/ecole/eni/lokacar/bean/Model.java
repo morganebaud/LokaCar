@@ -11,6 +11,18 @@ public class Model implements BaseColumns {
     private String ModeleDossier;
     private String Marque;
 
+    public Model(String designation,
+                 String modeleCommercial,
+                 String CNIT,
+                 String modeleDossier,
+                 String marque) {
+        Designation = designation;
+        ModeleCommercial = modeleCommercial;
+        this.CNIT = CNIT;
+        ModeleDossier = modeleDossier;
+        Marque = marque;
+    }
+
     public Model(int id,
                  String designation,
                  String modeleCommercial,
