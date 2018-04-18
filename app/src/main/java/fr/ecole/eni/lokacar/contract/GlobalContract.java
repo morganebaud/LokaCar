@@ -66,4 +66,11 @@ public abstract class GlobalContract {
             + "MARQUE TEXT, "
             + "CODEAGENCE INTEGER "
             + ")";
+
+    public final static String MARQUES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
+            + "MARQUES ("
+            + "ID INTEGER PRIMARY KEY , "
+            + "NOM TEXT"
+            + ")";
+
 }
