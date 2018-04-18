@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_perso" />
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -90,7 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!--RadioGroup
+            <RadioGroup
+                android:id="@+id/activity_search_radiogroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -114,14 +119,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Tous" />
-            </RadioGroup-->
+            </RadioGroup>
 
-            <CheckBox
+            <!--CheckBox
                 android:id="@+id/activity_search_cb_dispo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Disponible" />
+                android:text="Disponible" /-->
         </TableRow>
 
     </TableLayout>
