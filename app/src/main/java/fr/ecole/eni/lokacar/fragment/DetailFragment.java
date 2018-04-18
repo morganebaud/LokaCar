@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import fr.ecole.eni.lokacar.R;
-import fr.ecole.eni.lokacar.bean.DetailsModel;
+import fr.ecole.eni.lokacar.bean.Model;
 
 public class DetailFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -77,7 +77,7 @@ public class DetailFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public void chargeDetail(DetailsModel detail) {
+    public void chargeDetail(Model detail) {
 
         if(detail != null){
 

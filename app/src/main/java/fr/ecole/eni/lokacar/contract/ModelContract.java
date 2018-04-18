@@ -9,7 +9,15 @@ public abstract class ModelContract {
             + "MODELE_COMMERCIAL TEXT,"
             + "CNIT TEXT,"
             + "MARQUE TEXT,"
-            + "MODELE_DOSSIER TEXT)";
+            + "MODELE_DOSSIER TEXT,"
+            + "CARROSSERIE TEXT,"
+            + "CARBURANT TEXT,"
+            + "BOITEDEVITESSE TEXT,"
+            + "PUISSANCEADMINISTRATIVE INTEGER,"
+            + "CONSOMMATIONURBAINE DOUBLE,"
+            + "CONSOMMATIONEXTRAURBAINE DOUBLE,"
+            + "CONSOMMATIONMIXTE DOUBLE"
+            +")";
 
 
     public final static String QUERY_DELETE_TABLE_MODELS = "DROP TABLE IF EXISTS MODELS";
@@ -21,4 +29,11 @@ public abstract class ModelContract {
     public final static String _CNIT = "CNIT";
     public final static String _MARQUE = "MARQUE";
     public final static String _MODELE_DOSSIER = "MODELE_DOSSIER";
+    public final static String _CARROSSERIE = "CARROSSERIE";
+    public final static String _CARBURANT = "CARBURANT";
+    public final static String _BOITEDEVITESSE = "BOITEDEVITESSE";
+    public final static String _PUISSANCEADMINISTRATIVE = "PUISSANCEADMINISTRATIVE";
+    public final static String _CONSOMMATIONURBAINE = "CONSOMMATIONURBAINE";
+    public final static String _CONSOMMATIONEXTRAURBAINE = "CONSOMMATIONEXTRAURBAINE";
+    public final static String _CONSOMMATIONMIXTE = "CONSOMMATIONMIXTE";
 }

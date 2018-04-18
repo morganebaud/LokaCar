@@ -32,9 +32,17 @@ public class ModelDao {
         values.put(ModelContract._MODEL_ID, modele.getId());
         values.put(ModelContract._DESIGNATION, modele.getDesignation());
         values.put(ModelContract._MODELE_COMMERCIAL, modele.getModeleCommercial());
-        values.put(ModelContract._CNIT,modele.getCNIT());
-        values.put(ModelContract._MODELE_DOSSIER, modele.getModeleDossier());
+        values.put(ModelContract._CNIT,modele.getCnit());
         values.put(ModelContract._MARQUE, modele.getMarque());
+        values.put(ModelContract._MODELE_DOSSIER, modele.getModeleDossier());
+        values.put(ModelContract._CARROSSERIE, modele.getCarrosserie());
+        values.put(ModelContract._CARBURANT, modele.getCarburant());
+        values.put(ModelContract._BOITEDEVITESSE, modele.getBoiteDeVitesse());
+        values.put(ModelContract._PUISSANCEADMINISTRATIVE,modele.getPuissanceAdministrative());
+        values.put(ModelContract._CONSOMMATIONURBAINE, modele.getConsommationUrbaine());
+        values.put(ModelContract._CONSOMMATIONEXTRAURBAINE, modele.getConsommationExtraUrbaine());
+        values.put(ModelContract._CONSOMMATIONMIXTE, modele.getConsommationMixte());
+
         return values;
     }
 
@@ -89,8 +97,15 @@ public class ModelDao {
                 String cnit = cursor.getString(cursor.getColumnIndex(ModelContract._CNIT));
                 String modeleDossier = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_DOSSIER));
                 String marque = cursor.getString(cursor.getColumnIndex(ModelContract._MARQUE));
+                String carrosserie = cursor.getString(cursor.getColumnIndex(ModelContract._CARROSSERIE));
+                String carburant = cursor.getString(cursor.getColumnIndex(ModelContract._CARBURANT));
+                String boiteDeVitesse = cursor.getString(cursor.getColumnIndex(ModelContract._BOITEDEVITESSE));
+                int puissanceAdministrative = cursor.getInt(cursor.getColumnIndex(ModelContract._PUISSANCEADMINISTRATIVE));
+                Double consommationUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONURBAINE));
+                Double consommationExtraUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONEXTRAURBAINE));
+                Double consommationMixte = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONMIXTE));
 
-                objects.add(new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque));
+                objects.add(new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte));
 
             }while (cursor.moveToNext());
 
@@ -134,8 +149,15 @@ public class ModelDao {
                 cnit = cursor.getString(cursor.getColumnIndex(ModelContract._CNIT));
                 String modeleDossier = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_DOSSIER));
                 String marque = cursor.getString(cursor.getColumnIndex(ModelContract._MARQUE));
+                String carrosserie = cursor.getString(cursor.getColumnIndex(ModelContract._CARROSSERIE));
+                String carburant = cursor.getString(cursor.getColumnIndex(ModelContract._CARBURANT));
+                String boiteDeVitesse = cursor.getString(cursor.getColumnIndex(ModelContract._BOITEDEVITESSE));
+                int puissanceAdministrative = cursor.getInt(cursor.getColumnIndex(ModelContract._PUISSANCEADMINISTRATIVE));
+                Double consommationUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONURBAINE));
+                Double consommationExtraUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONEXTRAURBAINE));
+                Double consommationMixte = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONMIXTE));
 
-                object = new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque);
+                object = new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte);
 
             cursor.close();
         }

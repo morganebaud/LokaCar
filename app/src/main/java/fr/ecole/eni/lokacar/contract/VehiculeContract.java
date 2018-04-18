@@ -1,10 +1,10 @@
 package fr.ecole.eni.lokacar.contract;
 
-public abstract class VoitureContract {
+public abstract class VehiculeContract {
 
 
-    public final static String VOITURES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
-            + "VOITURES ("
+    public final static String VEHICULES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
+            + "VEHICULES ("
             + "ID INTEGER PRIMARY KEY , "
             + "CNIT TEXT , "
             + "PRIX DOUBLE , "
@@ -16,10 +16,10 @@ public abstract class VoitureContract {
             + ")";
 
 
-    public final static String QUERY_DELETE_TABLE_VOITURES = "DROP TABLE IF EXISTS VOITURES";
-    public final static String TABLE_VOITURES_NAME = "VOITURES";
+    public final static String QUERY_DELETE_TABLE_VEHICULES = "DROP TABLE IF EXISTS VEHICULES";
+    public final static String TABLE_VEHICULES_NAME = "VEHICULES";
 
-    public final static String _VOITURE_ID = "ID";
+    public final static String _VEHICULES_ID = "ID";
     public final static String _CNIT = "CNIT";
     public final static String _PRIX = "PRIX";
     public final static String _PLAQUE = "PLAQUE";
