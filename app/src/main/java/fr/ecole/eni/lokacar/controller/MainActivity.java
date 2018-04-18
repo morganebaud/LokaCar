@@ -37,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // --- insertion ----
+
+
+
         AgenceDao agenceDao = new AgenceDao(MainActivity.this);
         List<Agence> agences = agenceDao.getAll();
-
-
 
         ArrayAdapter<Agence> dataAdapter = new ArrayAdapter<Agence>(this, R.layout.support_simple_spinner_dropdown_item, agences);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

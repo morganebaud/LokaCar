@@ -32,6 +32,14 @@ public class SalarieDao {
         return values;
     }
 
+    public void Insert(Salarie salarie) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.insert(SalarieContract.TABLE_SALARIES_NAME, null, constructValuesDB(salarie));
+
+        db.close();
+    }
+
     public Salarie getByMail(String mail) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query(
