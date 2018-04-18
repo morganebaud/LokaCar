@@ -7,14 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.bean.Agence;
-import fr.ecole.eni.lokacar.bean.Voiture;
 
 public class AgenceAdapter extends ArrayAdapter<Agence> {
 private List<Agence> agences;

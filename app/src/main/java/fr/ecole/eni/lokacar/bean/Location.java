@@ -6,18 +6,18 @@ public class Location {
     private int Id;
     private int NumFiche;
     private Client Client;
-    private Voiture voiture;
+    private Vehicule vehicule;
     private Date DateDebut;
     private Date DateFin;
 
     public Location() {
     }
 
-    public Location(int id, int numFiche, fr.ecole.eni.lokacar.bean.Client client, Voiture voiture, Date dateDebut, Date dateFin) {
+    public Location(int id, int numFiche, fr.ecole.eni.lokacar.bean.Client client, Vehicule vehicule, Date dateDebut, Date dateFin) {
         Id = id;
         NumFiche = numFiche;
         Client = client;
-        this.voiture = voiture;
+        this.vehicule = vehicule;
         DateDebut = dateDebut;
         DateFin = dateFin;
     }
@@ -46,12 +46,12 @@ public class Location {
         Client = client;
     }
 
-    public Voiture getVoiture() {
-        return voiture;
+    public Vehicule getVehicule() {
+        return vehicule;
     }
 
-    public void setVoiture(Voiture voiture) {
-        this.voiture = voiture;
+    public void setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
     }
 
     public Date getDateDebut() {

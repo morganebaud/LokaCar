@@ -1,87 +1,210 @@
 package fr.ecole.eni.lokacar.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.provider.BaseColumns;
 
-public class Model implements BaseColumns {
+public class Model implements BaseColumns, Parcelable {
 
-    private int Id;
-    private String Designation;
-    private String ModeleCommercial;
-    private String CNIT;
-    private String ModeleDossier;
-    private String Marque;
+    private int id;
+    private String designation;
+    private String modeleCommercial;
+    private String cnit;
+    private String modeleDossier;
+    private String marque;
+    private String carrosserie;
+    private String carburant;
+    private String boiteDeVitesse;
+    private int puissanceAdministrative;
+    private double consommationUrbaine;
+    private double consommationExtraUrbaine;
+    private double consommationMixte;
 
-    public Model(String designation,
-                 String modeleCommercial,
-                 String CNIT,
-                 String modeleDossier,
-                 String marque) {
-        Designation = designation;
-        ModeleCommercial = modeleCommercial;
-        this.CNIT = CNIT;
-        ModeleDossier = modeleDossier;
-        Marque = marque;
+    public Model() {
     }
 
-    public Model(int id,
-                 String designation,
-                 String modeleCommercial,
-                 String CNIT,
-                 String modeleDossier,
-                 String marque) {
-        Id = id;
-        Designation = designation;
-        ModeleCommercial = modeleCommercial;
-        this.CNIT = CNIT;
-        ModeleDossier = modeleDossier;
-        Marque = marque;
+    public Model(String designation, String modeleCommercial, String cnit, String modeleDossier, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
+        this.designation = designation;
+        this.modeleCommercial = modeleCommercial;
+        this.cnit = cnit;
+        this.modeleDossier = modeleDossier;
+        this.marque = marque;
+        this.carrosserie = carrosserie;
+        this.carburant = carburant;
+        this.boiteDeVitesse = boiteDeVitesse;
+        this.puissanceAdministrative = puissanceAdministrative;
+        this.consommationUrbaine = consommationUrbaine;
+        this.consommationExtraUrbaine = consommationExtraUrbaine;
+        this.consommationMixte = consommationMixte;
     }
+
+    public Model(int id, String designation, String modeleCommercial, String cnit, String modeleDossier, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
+        this.id = id;
+        this.designation = designation;
+        this.modeleCommercial = modeleCommercial;
+        this.cnit = cnit;
+        this.modeleDossier = modeleDossier;
+        this.marque = marque;
+        this.carrosserie = carrosserie;
+        this.carburant = carburant;
+        this.boiteDeVitesse = boiteDeVitesse;
+        this.puissanceAdministrative = puissanceAdministrative;
+        this.consommationUrbaine = consommationUrbaine;
+        this.consommationExtraUrbaine = consommationExtraUrbaine;
+        this.consommationMixte = consommationMixte;
+    }
+
+    protected Model(Parcel in) {
+        id = in.readInt();
+        designation = in.readString();
+        modeleCommercial = in.readString();
+        cnit = in.readString();
+        modeleDossier = in.readString();
+        marque = in.readString();
+        carrosserie = in.readString();
+        carburant = in.readString();
+        boiteDeVitesse = in.readString();
+        puissanceAdministrative = in.readInt();
+        consommationUrbaine = in.readDouble();
+        consommationExtraUrbaine = in.readDouble();
+        consommationMixte = in.readDouble();
+    }
+
+    public static final Creator<Model> CREATOR = new Creator<Model>() {
+        @Override
+        public Model createFromParcel(Parcel in) {
+            return new Model(in);
+        }
+
+        @Override
+        public Model[] newArray(int size) {
+            return new Model[size];
+        }
+    };
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getDesignation() {
-        return Designation;
+        return designation;
     }
 
     public void setDesignation(String designation) {
-        Designation = designation;
+        this.designation = designation;
     }
 
     public String getModeleCommercial() {
-        return ModeleCommercial;
+        return modeleCommercial;
     }
 
     public void setModeleCommercial(String modeleCommercial) {
-        ModeleCommercial = modeleCommercial;
+        this.modeleCommercial = modeleCommercial;
     }
 
-    public String getCNIT() {
-        return CNIT;
+    public String getCnit() {
+        return cnit;
     }
 
-    public void setCNIT(String CNIT) {
-        this.CNIT = CNIT;
+    public void setCnit(String cnit) {
+        this.cnit = cnit;
     }
 
     public String getModeleDossier() {
-        return ModeleDossier;
+        return modeleDossier;
     }
 
     public void setModeleDossier(String modeleDossier) {
-        ModeleDossier = modeleDossier;
+        this.modeleDossier = modeleDossier;
     }
 
     public String getMarque() {
-        return Marque;
+        return marque;
     }
 
     public void setMarque(String marque) {
-        Marque = marque;
+        this.marque = marque;
+    }
+
+    public String getCarrosserie() {
+        return carrosserie;
+    }
+
+    public void setCarrosserie(String carrosserie) {
+        this.carrosserie = carrosserie;
+    }
+
+    public String getCarburant() {
+        return carburant;
+    }
+
+    public void setCarburant(String carburant) {
+        this.carburant = carburant;
+    }
+
+    public String getBoiteDeVitesse() {
+        return boiteDeVitesse;
+    }
+
+    public void setBoiteDeVitesse(String boiteDeVitesse) {
+        this.boiteDeVitesse = boiteDeVitesse;
+    }
+
+    public int getPuissanceAdministrative() {
+        return puissanceAdministrative;
+    }
+
+    public void setPuissanceAdministrative(int puissanceAdministrative) {
+        this.puissanceAdministrative = puissanceAdministrative;
+    }
+
+    public double getConsommationUrbaine() {
+        return consommationUrbaine;
+    }
+
+    public void setConsommationUrbaine(double consommationUrbaine) {
+        this.consommationUrbaine = consommationUrbaine;
+    }
+
+    public double getConsommationExtraUrbaine() {
+        return consommationExtraUrbaine;
+    }
+
+    public void setConsommationExtraUrbaine(double consommationExtraUrbaine) {
+        this.consommationExtraUrbaine = consommationExtraUrbaine;
+    }
+
+    public double getConsommationMixte() {
+        return consommationMixte;
+    }
+
+    public void setConsommationMixte(double consommationMixte) {
+        this.consommationMixte = consommationMixte;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(designation);
+        dest.writeString(modeleCommercial);
+        dest.writeString(cnit);
+        dest.writeString(modeleDossier);
+        dest.writeString(marque);
+        dest.writeString(carrosserie);
+        dest.writeString(carburant);
+        dest.writeString(boiteDeVitesse);
+        dest.writeInt(puissanceAdministrative);
+        dest.writeDouble(consommationUrbaine);
+        dest.writeDouble(consommationExtraUrbaine);
+        dest.writeDouble(consommationMixte);
     }
 }

@@ -4,23 +4,23 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import fr.ecole.eni.lokacar.contract.DetailsModelContract;
+import fr.ecole.eni.lokacar.contract.VehiculeContract;
 import fr.ecole.eni.lokacar.contract.GlobalContract;
 
-public class DetailsModelHelper extends SQLiteOpenHelper {
+public class VehiculeHelper extends SQLiteOpenHelper {
 
-    public DetailsModelHelper(Context context) {
+    public VehiculeHelper(Context context) {
         super(context, GlobalContract.DATABASE_NAME,null,GlobalContract.DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DetailsModelContract.MODELE_DETAIL_CREATE_TABLE);
+        db.execSQL(VehiculeContract.VEHICULES_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(DetailsModelContract.QUERY_DELETE_TABLE_MODELE_DETAIL);
+        db.execSQL(VehiculeContract.QUERY_DELETE_TABLE_VEHICULES);
         onCreate(db);
     }
 }

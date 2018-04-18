@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import fr.ecole.eni.lokacar.R;
-import fr.ecole.eni.lokacar.bean.DetailsModel;
+import fr.ecole.eni.lokacar.bean.Model;
 import fr.ecole.eni.lokacar.fragment.DetailFragment;
 
 public class DetailActivity extends AppCompatActivity
@@ -21,8 +21,7 @@ public class DetailActivity extends AppCompatActivity
                 .findFragmentById(R.id.fragmentDetail);
 
         Intent intent = getIntent();
-        DetailsModel detail = intent.getParcelableExtra("detail");
-
+        Model detail = intent.getParcelableExtra("detail");
 
         //Récupère la toolbar
         /*

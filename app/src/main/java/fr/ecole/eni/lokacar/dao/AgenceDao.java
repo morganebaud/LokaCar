@@ -9,12 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.ecole.eni.lokacar.bddHelper.AgenceHelper;
-import fr.ecole.eni.lokacar.bean.DetailsModel;
-import fr.ecole.eni.lokacar.bean.Model;
-import fr.ecole.eni.lokacar.bean.Voiture;
 import fr.ecole.eni.lokacar.contract.AgenceContract;
 import fr.ecole.eni.lokacar.bean.Agence;
-import fr.ecole.eni.lokacar.contract.VoitureContract;
 
 public class AgenceDao {
 

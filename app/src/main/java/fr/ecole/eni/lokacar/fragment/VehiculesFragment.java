@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.adapter.VehiculesRecyclerViewAdapter;
-import fr.ecole.eni.lokacar.bean.Voiture;
+import fr.ecole.eni.lokacar.bean.Vehicule;
 
 public class VehiculesFragment extends Fragment {
 
@@ -74,6 +74,6 @@ public class VehiculesFragment extends Fragment {
     }
 
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(Voiture item);
+        void onListFragmentInteraction(Vehicule item);
     }
 }
