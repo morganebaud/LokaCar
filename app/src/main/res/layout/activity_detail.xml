@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".controller.DetailActivity">
 
+    <include layout="@layout/toolbar_perso" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"

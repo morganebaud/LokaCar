@@ -6,4 +6,20 @@
     <color name="colorGreenLight">#8bf27d</color>
     <color name="colorGreenDark">#328926</color>
     <color name="colorGreenDarkAll">#195411</color>
+
+    <color name="colorAmber50">#FFF8E1</color>
+    <color name="colorAmber100">#FFECB3</color>
+    <color name="colorAmber200">#FFE082</color>
+    <color name="colorAmber300">#FFD54F</color>
+    <color name="colorAmber400">#FFCA28</color>
+    <color name="colorAmber500">#FFC107</color>
+    <color name="colorAmber600">#FFB300</color>
+    <color name="colorAmber700">#FFA000</color>
+    <color name="colorAmber800">#FF8F00</color>
+    <color name="colorAmber900">#FF6F00</color>
+
+    <color name="colorAmberA100">#FFE57F</color>
+    <color name="colorAmberA200">#FFD740</color>
+    <color name="colorAmberA400">#FFC400</color>
+    <color name="colorAmberA700">#FFAB00</color>
 </resources>

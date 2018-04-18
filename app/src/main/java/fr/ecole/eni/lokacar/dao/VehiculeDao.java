@@ -93,32 +93,44 @@ public class VehiculeDao {
         List<String> argsList = new ArrayList<>();
 
         String selection = "1";
+        if (critereString != null) {
+            selection += critereString[0] != null ? " AND " + VehiculeContract._MARQUE + "=?" : ""; //marque
 
-        selection += critereString[0] != null ?  " AND " + VehiculeContract._MARQUE + "=?" : ""; //marque
+            selection += critereString[1] != null ? " AND " + VehiculeContract._CNIT + "=? " : "";  //model ?
 
-        selection += critereString[1] != null ?  " AND " + VehiculeContract._CNIT + "=? " : "";  //model ?
+            selection += critereString[2] != null ? " AND " + VehiculeContract._PRIX + "> ? " : ""; //prix min
 
-        selection += critereString[2] != null  ?  " AND " + VehiculeContract._PRIX + "> ? " : ""; //prix min
+            selection += critereString[3] != null ? " AND " + VehiculeContract._PRIX + "< ? " : ""; //prix max
 
-        selection += critereString[3] != null ?  " AND " + VehiculeContract._PRIX + "< ? " : ""; //prix max
+            selection += critereString[4] != null ? " AND " + VehiculeContract._ISDISPO + "=? " : ""; // dispo
 
-        //selection += critereString[4] != null ?  " AND " + VehiculeContract._ISDISPO + "=? " : ""; // dispo
-        if(critereString[0] != null){ argsList.add(critereString[0]); }
+            if (critereString[0] != null) {
+                argsList.add(critereString[0]);
+            }
 
-        if(critereString[1] != null){ argsList.add(critereString[1]); }
+            if (critereString[1] != null) {
+                argsList.add(critereString[1]);
+            }
 
-        if(critereString[2] != null){ argsList.add(critereString[2]); }
+            if (critereString[2] != null) {
+                argsList.add(critereString[2]);
+            }
 
-        if(critereString[3] != null){ argsList.add(critereString[3]); }
+            if (critereString[3] != null) {
+                argsList.add(critereString[3]);
+            }
 
+            if (critereString[4] != null) {
+                argsList.add(critereString[4]);
+            }
 
+        }
         String[] args = argsList.toArray(new String[argsList.size()]);
-        if(argsList.size() == 0)
-        {
+        if (argsList.size() == 0) {
             args = null;
         }
 
-Log.i("RUN",selection);
+        Log.i("RUN", selection);
 
         Cursor cursor = db.query(
                 VehiculeContract.TABLE_VEHICULES_NAME,

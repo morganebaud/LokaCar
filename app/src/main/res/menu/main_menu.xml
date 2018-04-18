@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/menu_locenCours"
+    android:title="Location en cours"
+    android:orderInCategory="10"
+    app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_newLoc"
+        android:title="Nouvelle location"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_finance"
+        android:title="Finance"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_newVehicule"
+        android:title="Ajouter une vehicule"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="Recherche"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_listVehicules"
+        android:title="Liste des vehicules"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <!--android:showAsAction="always"-->
+</menu>
