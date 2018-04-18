@@ -38,8 +38,10 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
         holder.mModele.setText(mVoitures.get(position).getMarque());
 
         holder.mItem = mVoitures.get(position);
-        holder.mModele.setText(mVoitures.get(position).getModel().getModeleCommercial());
-        holder.mDesignation.setText(mVoitures.get(position).getModel().getDesignation());
+        if (mVoitures.get(position).getModel() != null) {
+            holder.mModele.setText(mVoitures.get(position).getModel().getModeleCommercial());
+            holder.mDesignation.setText(mVoitures.get(position).getModel().getDesignation());
+        }
         holder.mPrix.setText(Float.valueOf(mVoitures.get(position).getPrix()).toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {

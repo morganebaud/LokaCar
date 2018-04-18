@@ -31,7 +31,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void SearchClick(View view) {
         //si la recherche est vide on envoie tout la liste
-        Intent intent = new Intent(SearchActivity.this,ListActivity.class);
+        Intent intent = new Intent(SearchActivity.this,VehiculesActivity.class);
 
         VoitureDao voitureDao = new VoitureDao(SearchActivity.this);
 
