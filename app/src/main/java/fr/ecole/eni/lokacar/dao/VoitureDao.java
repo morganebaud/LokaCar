@@ -110,9 +110,9 @@ public class VoitureDao {
 
         if(critereString[1] != null){ argsList.add(critereString[1]); }
 
-        if(critereString[3] != null){ argsList.add(critereString[3]); }
-
         if(critereString[2] != null){ argsList.add(critereString[2]); }
+
+        if(critereString[3] != null){ argsList.add(critereString[3]); }
 
 
         String[] args = argsList.toArray(new String[argsList.size()]);

@@ -37,9 +37,12 @@ public class VehiculesActivity extends AppCompatActivity
         mVehiculesFragment = (VehiculesFragment) getSupportFragmentManager().findFragmentById(R.id.vehiculesFragment);
         mDetailFragment = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentDetail);
 
-        mVehicules = new ArrayList<Voiture>();
-        mVehicules.add(new Voiture("Peugeot", new Model("308","Peugeot 308",null,null,null),null,null, 15.6f,null,null,false,null));
-        mVehicules.add(new Voiture("Citroen",  new Model("C3","Citroen C3",null,null,null),null,null, 8.30f,null,null,false,null));
+        //mVehicules = new ArrayList<Voiture>();
+        //mVehicules.add(new Voiture("Peugeot", new Model("308","Peugeot 308",null,null,null),null,null, 15.6f,null,null,false,null));
+        //mVehicules.add(new Voiture("Citroen",  new Model("C3","Citroen C3",null,null,null),null,null, 8.30f,null,null,false,null));
+
+        Intent intent = getIntent();
+        mVehicules = intent.getParcelableArrayListExtra("resultats");
 
         if(mVehiculesFragment != null && mVehiculesFragment.isInLayout()){
             setAdapterListe();

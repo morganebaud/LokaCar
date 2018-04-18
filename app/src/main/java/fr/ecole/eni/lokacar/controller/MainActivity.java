@@ -26,33 +26,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        Button btnTst = (Button) findViewById(R.id.test);
-        btnTst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, VehiculesActivity.class);
-                startActivity(i);
-            }
-        });
-        */
+
+
         AgenceDao agenceDao = new AgenceDao(MainActivity.this);
         List<Agence> agences = agenceDao.getAll();
 
 
 
         ArrayAdapter<Agence> dataAdapter = new ArrayAdapter<Agence>(this, R.layout.support_simple_spinner_dropdown_item, agences);
-
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Spinner spinner = (Spinner) findViewById(R.id.activity_main_spinner);
-
         spinner.setAdapter(dataAdapter);
 
-/*
-        ArrayAdapter<Agence> adapter = new AgenceAdapter(MainActivity.this,R.layout.agence_item,agences);
-        spinner.setAdapter(adapter);
-        */
     }
 
     public void ConectionClick(View view) {
