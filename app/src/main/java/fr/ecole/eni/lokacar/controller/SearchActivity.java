@@ -99,13 +99,13 @@ public class SearchActivity extends AppCompatActivity {
                 break;
 
             case R.id.menu_newVehicule :
-                intent = new Intent(SearchActivity.this, NewVehiculeActivity.class);
+                intent = new Intent(SearchActivity.this,NewVehiculeActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.menu_search :
-                //intent = new Intent(SearchActivity.this,SearchActivity.class);
-                //startActivity(intent);
+                intent = new Intent(SearchActivity.this,SearchActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.menu_listVehicules :

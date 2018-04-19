@@ -14,7 +14,7 @@ public class Model implements BaseColumns, Parcelable {
     private String carrosserie;
     private String carburant;
     private String boiteDeVitesse;
-    private int puissanceAdministrative;
+    private int    puissanceAdministrative;
     private double consommationUrbaine;
     private double consommationExtraUrbaine;
     private double consommationMixte;
@@ -49,6 +49,11 @@ public class Model implements BaseColumns, Parcelable {
         this.consommationUrbaine = consommationUrbaine;
         this.consommationExtraUrbaine = consommationExtraUrbaine;
         this.consommationMixte = consommationMixte;
+    }
+
+    @Override
+    public String toString() {
+        return designation;
     }
 
     protected Model(Parcel in) {

@@ -2,7 +2,11 @@ package fr.ecole.eni.lokacar.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.ecole.eni.lokacar.bddHelper.AgenceHelper;
 import fr.ecole.eni.lokacar.bddHelper.MarqueHelper;
@@ -30,6 +34,29 @@ public class MarqueDao {
         db.insert(MarqueContract.TABLE_MARQUES_NAME, null, constructValuesDB(marque));
 
         db.close();
+    }
+
+    public List<Marque> getAll(){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                MarqueContract.TABLE_MARQUES_NAME, null, null, null,
+                null,
+                null,
+                null);
+
+        List<Marque> objects = new ArrayList<Marque>();
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String nom = cursor.getString(cursor.getColumnIndex(MarqueContract._NOM));
+
+                objects.add(new Marque( nom));
+
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+        return objects;
     }
 
 }
