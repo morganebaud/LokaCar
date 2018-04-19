@@ -29,12 +29,10 @@ public class ModelDao {
      */
     private ContentValues constructValuesDB(Model modele) {
         ContentValues values = new ContentValues();
-        values.put(ModelContract._MODEL_ID, modele.getId());
         values.put(ModelContract._DESIGNATION, modele.getDesignation());
         values.put(ModelContract._MODELE_COMMERCIAL, modele.getModeleCommercial());
         values.put(ModelContract._CNIT,modele.getCnit());
         values.put(ModelContract._MARQUE, modele.getMarque());
-        values.put(ModelContract._MODELE_DOSSIER, modele.getModeleDossier());
         values.put(ModelContract._CARROSSERIE, modele.getCarrosserie());
         values.put(ModelContract._CARBURANT, modele.getCarburant());
         values.put(ModelContract._BOITEDEVITESSE, modele.getBoiteDeVitesse());
@@ -95,7 +93,6 @@ public class ModelDao {
                 String designation = cursor.getString(cursor.getColumnIndex(ModelContract._DESIGNATION));
                 String modeleCommercial = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_COMMERCIAL));
                 String cnit = cursor.getString(cursor.getColumnIndex(ModelContract._CNIT));
-                String modeleDossier = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_DOSSIER));
                 String marque = cursor.getString(cursor.getColumnIndex(ModelContract._MARQUE));
                 String carrosserie = cursor.getString(cursor.getColumnIndex(ModelContract._CARROSSERIE));
                 String carburant = cursor.getString(cursor.getColumnIndex(ModelContract._CARBURANT));
@@ -105,7 +102,7 @@ public class ModelDao {
                 Double consommationExtraUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONEXTRAURBAINE));
                 Double consommationMixte = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONMIXTE));
 
-                objects.add(new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte));
+                objects.add(new Model(id, designation, modeleCommercial, cnit, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte));
 
             }while (cursor.moveToNext());
 
@@ -147,7 +144,6 @@ public class ModelDao {
                 String designation = cursor.getString(cursor.getColumnIndex(ModelContract._DESIGNATION));
                 String modeleCommercial = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_COMMERCIAL));
                 cnit = cursor.getString(cursor.getColumnIndex(ModelContract._CNIT));
-                String modeleDossier = cursor.getString(cursor.getColumnIndex(ModelContract._MODELE_DOSSIER));
                 String marque = cursor.getString(cursor.getColumnIndex(ModelContract._MARQUE));
                 String carrosserie = cursor.getString(cursor.getColumnIndex(ModelContract._CARROSSERIE));
                 String carburant = cursor.getString(cursor.getColumnIndex(ModelContract._CARBURANT));
@@ -157,7 +153,7 @@ public class ModelDao {
                 Double consommationExtraUrbaine = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONEXTRAURBAINE));
                 Double consommationMixte = cursor.getDouble(cursor.getColumnIndex(ModelContract._CONSOMMATIONMIXTE));
 
-                object = new Model(id, designation, modeleCommercial, cnit, modeleDossier, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte);
+                object = new Model(id, designation, modeleCommercial, cnit, marque, carrosserie, carburant, boiteDeVitesse, puissanceAdministrative, consommationUrbaine, consommationExtraUrbaine, consommationMixte);
 
             cursor.close();
         }

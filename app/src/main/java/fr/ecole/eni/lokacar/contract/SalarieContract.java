@@ -3,7 +3,7 @@ package fr.ecole.eni.lokacar.contract;
 public class SalarieContract {
     public final static String SALARIES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "SALARIES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "NOM TEXT, "
             + "PRENOM TEXT, "
             + "MAIL TEXT, "

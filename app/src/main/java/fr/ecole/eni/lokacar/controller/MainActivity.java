@@ -17,8 +17,11 @@ import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.bean.Agence;
+import fr.ecole.eni.lokacar.bean.Model;
 import fr.ecole.eni.lokacar.bean.Salarie;
+import fr.ecole.eni.lokacar.bean.Vehicule;
 import fr.ecole.eni.lokacar.dao.AgenceDao;
+import fr.ecole.eni.lokacar.dao.ModelDao;
 import fr.ecole.eni.lokacar.dao.SalarieDao;
 import fr.ecole.eni.lokacar.dao.VehiculeDao;
 
@@ -34,14 +37,35 @@ public class MainActivity extends AppCompatActivity {
             //associe la toolbar
             setSupportActionBar(toolbar);
         }
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        // --- insertion ----
-
-
-
         AgenceDao agenceDao = new AgenceDao(MainActivity.this);
+
+        // --- insertion ----
+        if (agenceDao.getAll().size() == 0) {
+
+            agenceDao.Insert(new Agence(1, "LokaCar Nantes", "Nantes", "44000"));
+            agenceDao.Insert(new Agence(2, "LokaCar Paris", "Paris", "75000"));
+            agenceDao.Insert(new Agence(3, "LokaCar Bordeaux", "Bordeaux", "33000"));
+
+            SalarieDao salarieDao = new SalarieDao((MainActivity.this));//nom, String prenom, String mail, String mdp, boolean isGerant, int codeAgence
+            salarieDao.Insert(new Salarie("baud", "morgane", "m.fr", "123", true, 1));
+            salarieDao.Insert(new Salarie("aloche", "stephen", "s.fr", "123", true, 2));
+            salarieDao.Insert(new Salarie("noob", "noob", "n.fr", "123", false, 2));
+
+            ModelDao modelDao = new ModelDao(MainActivity.this);
+            VehiculeDao vehiculeDao = new VehiculeDao(MainActivity.this);
+
+            // String designation, String modeleCommercial, String cnit, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte
+            modelDao.insert(new Model("MEGANE Berline Akaju EnergydCi (130ch) eco2", "MEGANE", "123", "RENAULT", "BERLINE", "GO", "M6", 7, 5, 3.9, 4.3));
+            modelDao.insert(new Model("VIPER SRT-10", "VIPER", "456", "DODGE", "SPORTIVE", "ES", "M6", 506, 34.5, 13.2, 21.1));
+
+            // marque, Model model,/* DetailsModel detailsModel,*/ String cnit, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath
+            vehiculeDao.insert(new Vehicule("MEGANE", modelDao.getByCnit("123"), "123", 30.61f, "AF-68-RT", 1, true, null));
+            vehiculeDao.insert(new Vehicule("VIPER", modelDao.getByCnit("456"), "456", 700f, "JN-54-AZ", 1, false, null));
+        }
+        // ------------------
+
         List<Agence> agences = agenceDao.getAll();
 
         ArrayAdapter<Agence> dataAdapter = new ArrayAdapter<Agence>(this, R.layout.support_simple_spinner_dropdown_item, agences);
@@ -81,10 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater inflater = new MenuInflater(MainActivity.this);
-
-        inflater.inflate(R.menu.main_menu, menu);
 
         return super.onCreateOptionsMenu(menu);
     }

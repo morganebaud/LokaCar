@@ -25,14 +25,13 @@ public class VehiculeDao {
 
     private ContentValues constructValuesDB(Vehicule vehicule) {
         ContentValues values = new ContentValues();
-        values.put(VehiculeContract._VEHICULES_ID, vehicule.getId());
         values.put(VehiculeContract._CNIT, vehicule.getCnit());
         values.put(VehiculeContract._PRIX, vehicule.getPrix());
         values.put(VehiculeContract._PLAQUE, vehicule.getPlaque());
         values.put(VehiculeContract._PHOTOPATH, vehicule.getPhotoPath());
         values.put(VehiculeContract._ISDISPO, vehicule.isDispo() ? 1 : 0);
         values.put(VehiculeContract._MARQUE, vehicule.getMarque());
-        values.put(VehiculeContract._CODEAGENCE, vehicule.getAgence().getCodeAgence());
+        values.put(VehiculeContract._CODEAGENCE, vehicule.getCodeAgence());
         return values;
     }
 
@@ -67,14 +66,13 @@ public class VehiculeDao {
                 String marque = cursor.getString(cursor.getColumnIndex(VehiculeContract._MARQUE));
                 String cnit = cursor.getString(cursor.getColumnIndex(VehiculeContract._CNIT));
                 Model model = modelDao.getByCnit(cnit);
-                //DetailsModel detailsModel = detailModelDao.getByCnit(cnit);
                 Float prix = cursor.getFloat(cursor.getColumnIndex(VehiculeContract._PRIX));
                 String plaque = cursor.getString(cursor.getColumnIndex(VehiculeContract._PLAQUE));
-                Agence agence = agenceDao.getByCode(cursor.getInt(cursor.getColumnIndex(VehiculeContract._CODEAGENCE)));
+                int agence = cursor.getInt(cursor.getColumnIndex(VehiculeContract._CODEAGENCE));
                 boolean isDispo = cursor.getInt(cursor.getColumnIndex(VehiculeContract._ISDISPO)) == 1 ? true : false;
                 String photoPath = cursor.getString(cursor.getColumnIndex(VehiculeContract._PHOTOPATH));
 
-                objects.add(new Vehicule(id, marque, model, /*detailsModel,*/ cnit, prix, plaque,
+                objects.add(new Vehicule(id, marque, model, cnit, prix, plaque,
                         agence, isDispo, photoPath));
 
             } while (cursor.moveToNext());
@@ -149,14 +147,13 @@ public class VehiculeDao {
                 String marque = cursor.getString(cursor.getColumnIndex(VehiculeContract._MARQUE));
                 String cnit = cursor.getString(cursor.getColumnIndex(VehiculeContract._CNIT));
                 Model model = modelDao.getByCnit(cnit);
-                //DetailsModel detailsModel = detailModelDao.getByCnit(cnit);
                 Float prix = cursor.getFloat(cursor.getColumnIndex(VehiculeContract._PRIX));
                 String plaque = cursor.getString(cursor.getColumnIndex(VehiculeContract._PLAQUE));
-                Agence agence = agenceDao.getByCode(cursor.getInt(cursor.getColumnIndex(VehiculeContract._CODEAGENCE)));
+                int agence = cursor.getInt(cursor.getColumnIndex(VehiculeContract._CODEAGENCE));
                 boolean isDispo = cursor.getInt(cursor.getColumnIndex(VehiculeContract._ISDISPO)) == 1 ? true : false;
                 String photoPath = cursor.getString(cursor.getColumnIndex(VehiculeContract._PHOTOPATH));
 
-                objects.add(new Vehicule(id, marque, model, /*detailsModel,*/ cnit, prix, plaque,
+                objects.add(new Vehicule(id, marque, model, cnit, prix, plaque,
                         agence, isDispo, photoPath));
 
             } while (cursor.moveToNext());

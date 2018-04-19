@@ -3,7 +3,7 @@ package fr.ecole.eni.lokacar.contract;
 public class MarqueContract {
     public final static String MARQUES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MARQUES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "NOM TEXT"
             + ")";
 

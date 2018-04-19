@@ -8,7 +8,7 @@ public abstract class GlobalContract {
     //SALARIE
     public final static String SALARIES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "SALARIES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "NOM TEXT, "
             + "PRENOM TEXT, "
             + "MAIL TEXT, "
@@ -20,7 +20,7 @@ public abstract class GlobalContract {
     //AGENCES
     public final static String AGENCES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "AGENCES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "CODEAGENCE INTEGER, "
             + "NOM TEXT, "
             + "VILLE TEXT, "
@@ -29,7 +29,7 @@ public abstract class GlobalContract {
     //MODELE_DETAIL
     public final static String MODELE_DETAIL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELE_DETAILS ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "DESIGNATION TEXT,"
             + "CONSOMMATION_EXTRA_URBAINE REAL,"
             + "BOITE_DE_VITESSE TEXT,"
@@ -47,17 +47,23 @@ public abstract class GlobalContract {
     //MODELS
     public final static String MODELS_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELS ("
-            + "ID INTEGER PRIMARY KEY, "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "DESIGNATION TEXT,"
             + "MODELE_COMMERCIAL TEXT,"
             + "CNIT TEXT,"
             + "MARQUE TEXT,"
-            + "MODELE_DOSSIER TEXT"
+            + "CARROSSERIE TEXT,"
+            + "CARBURANT TEXT,"
+            + "BOITEDEVITESSE TEXT,"
+            + "PUISSANCEADMINISTRATIVE INTEGER,"
+            + "CONSOMMATIONURBAINE DOUBLE,"
+            + "CONSOMMATIONEXTRAURBAINE DOUBLE,"
+            + "CONSOMMATIONMIXTE DOUBLE"
             + ")";
     //VEHICULES
     public final static String VEHICULES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "VEHICULES ("
-            + "ID INTEGER PRIMARY KEY, "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "CNIT TEXT, "
             + "PRIX DOUBLE, "
             + "PLAQUE TEXT, "
@@ -69,7 +75,7 @@ public abstract class GlobalContract {
 
     public final static String MARQUES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MARQUES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "NOM TEXT"
             + ")";
 

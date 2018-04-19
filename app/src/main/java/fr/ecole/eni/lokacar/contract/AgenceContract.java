@@ -4,7 +4,7 @@ public class AgenceContract {
 
     public final static String AGENCES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "AGENCES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "CODEAGENCE INTEGER, "
             + "NOM TEXT, "
             + "VILLE TEXT, "
