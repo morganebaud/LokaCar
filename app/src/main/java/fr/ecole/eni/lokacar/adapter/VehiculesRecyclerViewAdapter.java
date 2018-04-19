@@ -66,6 +66,7 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), LocationActivity.class);
+
                     v.getContext().startActivity(intent);
                 }
             });
