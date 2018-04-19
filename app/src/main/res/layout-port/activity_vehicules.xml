@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".controller.VehiculesActivity">
 
+    <include layout="@layout/toolbar_perso" />
+
     <LinearLayout
         android:padding="@dimen/padding_middle"
         android:id="@+id/layout_chargement"

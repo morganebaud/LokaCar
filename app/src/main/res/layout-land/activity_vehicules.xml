@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".controller.VehiculesActivity">
 
+    <include layout="@layout/toolbar_perso" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
