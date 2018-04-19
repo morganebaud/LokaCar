@@ -1,5 +1,6 @@
 package fr.ecole.eni.lokacar.adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -7,13 +8,17 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.bean.Vehicule;
+import fr.ecole.eni.lokacar.controller.LocationActivity;
+import fr.ecole.eni.lokacar.controller.VehiculesActivity;
 import fr.ecole.eni.lokacar.fragment.VehiculesFragment;
 
 public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewAdapter.ViewHolder> {
@@ -55,8 +60,26 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
 
         if (!mVehicules.get(position).isDispo()) {
             holder.mCardView.setCardBackgroundColor(Color.parseColor("#B71C1C"));
+            holder.mBtnAction.setText("Retour");
+
+            holder.mBtnAction.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), LocationActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         } else {
             holder.mCardView.setCardBackgroundColor(Color.parseColor("#8BC34A"));
+            holder.mBtnAction.setText("Louer");
+
+            holder.mBtnAction.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), LocationActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
 
         if (mVehicules.get(position).getModel() != null) {
@@ -78,22 +101,24 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
+        public final CardView mCardView;
         public final ImageView mImageView;
         public final TextView mModele;
         public final TextView mDesignation;
         public final TextView mPrix;
-        public final CardView mCardView;
+        public final Button mBtnAction;
         public Vehicule mItem;
 
         public ViewHolder(View v) {
             super(v);
 
             mView = v;
+            mCardView = (CardView) v.findViewById(R.id.fragmentVehiculesItems_cardview);
             mImageView = (ImageView) v.findViewById(R.id.fragmentVehiculesItem_photo);
             mModele = (TextView) v.findViewById(R.id.fragmentVehiculesItem_modele);
             mDesignation = (TextView) v.findViewById(R.id.fragmentVehiculesItem_designation);
             mPrix = (TextView) v.findViewById(R.id.fragmentVehiculesItem_prix);
-            mCardView = (CardView) v.findViewById(R.id.fragmentVehiculesItems_cardview);
+            mBtnAction = (Button) v.findViewById(R.id.fragmentVehiculesItem_btnAction);
         }
     }
 

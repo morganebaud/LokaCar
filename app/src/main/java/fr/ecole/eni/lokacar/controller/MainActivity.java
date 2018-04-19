@@ -108,45 +108,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()){
-            case    R.id.menu_locenCours :
-                //Intent intent = new Intent(MainActivity.this,);
-                //startActivity(intent);
-                break;
-
-            case R.id.menu_newLoc :
-                //Intent intent = new Intent(MainActivity.this,);
-                //startActivity(intent);
-                break;
-
-            case R.id.menu_finance :
-                //Intent intent = new Intent(MainActivity.this,);
-                //startActivity(intent);
-                break;
-
-            case R.id.menu_newVehicule :
-                //Intent intent = new Intent(MainActivity.this,);
-                //startActivity(intent);
-                break;
-
-            case R.id.menu_search :
-                intent = new Intent(MainActivity.this,SearchActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.menu_listVehicules :
-                intent = new Intent(MainActivity.this,VehiculesActivity.class);
-                VehiculeDao vehiculeDao = new VehiculeDao(MainActivity.this);
-                intent.putParcelableArrayListExtra("resultats", vehiculeDao.getListeBySearch(MainActivity.this,null));
-                startActivity(intent);
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

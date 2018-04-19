@@ -8,16 +8,6 @@
 
     <include layout="@layout/toolbar_perso" />
 
-    <!--Button
-    tools:context=".controller.MainActivity">
-
-    <Button
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="go"/-->
-
-
     <TextView
         android:id="@+id/acitivty_main_tv_mail"
         android:layout_width="wrap_content"
