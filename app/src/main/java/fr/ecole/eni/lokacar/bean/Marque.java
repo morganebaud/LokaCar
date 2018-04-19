@@ -16,6 +16,11 @@ public class Marque {
     public Marque() {
     }
 
+    @Override
+    public String toString() {
+        return Nom;
+    }
+
     public int getId() {
         return Id;
     }
