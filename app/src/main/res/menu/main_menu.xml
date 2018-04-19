@@ -21,7 +21,7 @@
 
     <item
         android:id="@+id/menu_newVehicule"
-        android:title="Ajouter une vehicule"
+        android:title="Ajouter un vehicule"
         android:orderInCategory="10"
         app:showAsAction="always"/>
 
