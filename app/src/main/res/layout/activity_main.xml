@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".controller.MainActivity">
 
     <include layout="@layout/toolbar_perso" />
 
@@ -17,54 +17,60 @@
         android:layout_height="wrap_content"
         android:text="go"/-->
 
-
-    <TextView
-        android:id="@+id/acitivty_main_tv_mail"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Mail"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/activity_main_et_mail"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:inputType="text"
-        android:text=""/>
+        <TextView
+            android:id="@+id/acitivty_main_tv_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mail" />
 
-    <TextView
-        android:id="@+id/acitivty_main_tv_agence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Agence"/>
+        <EditText
+            android:id="@+id/activity_main_et_mail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="" />
 
-    <Spinner
-        android:id="@+id/activity_main_spinner"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/acitivty_main_tv_agence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agence" />
 
-    <TextView
-        android:id="@+id/acitivty_main_tv_mdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Mot de passe"/>
+        <Spinner
+            android:id="@+id/activity_main_spinner"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/activity_main_et_mdp"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:inputType="textPassword"
-        android:text=""/>
+        <TextView
+            android:id="@+id/acitivty_main_tv_mdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mot de passe" />
 
-    <Button
-        android:id="@+id/acitivty_main_btn_connection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Connection"
-        android:onClick="ConectionClick"/>
+        <EditText
+            android:id="@+id/activity_main_et_mdp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/acitivty_main_cb_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se souvenir de moi" />
+
+        <Button
+            android:id="@+id/acitivty_main_btn_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ConectionClick"
+            android:text="Connexion" />
+    </LinearLayout>
 </LinearLayout>
