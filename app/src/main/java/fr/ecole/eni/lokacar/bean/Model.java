@@ -10,7 +10,6 @@ public class Model implements BaseColumns, Parcelable {
     private String designation;
     private String modeleCommercial;
     private String cnit;
-    private String modeleDossier;
     private String marque;
     private String carrosserie;
     private String carburant;
@@ -23,11 +22,10 @@ public class Model implements BaseColumns, Parcelable {
     public Model() {
     }
 
-    public Model(String designation, String modeleCommercial, String cnit, String modeleDossier, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
+    public Model(String designation, String modeleCommercial, String cnit, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
         this.designation = designation;
         this.modeleCommercial = modeleCommercial;
         this.cnit = cnit;
-        this.modeleDossier = modeleDossier;
         this.marque = marque;
         this.carrosserie = carrosserie;
         this.carburant = carburant;
@@ -38,12 +36,11 @@ public class Model implements BaseColumns, Parcelable {
         this.consommationMixte = consommationMixte;
     }
 
-    public Model(int id, String designation, String modeleCommercial, String cnit, String modeleDossier, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
+    public Model(int id, String designation, String modeleCommercial, String cnit, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte) {
         this.id = id;
         this.designation = designation;
         this.modeleCommercial = modeleCommercial;
         this.cnit = cnit;
-        this.modeleDossier = modeleDossier;
         this.marque = marque;
         this.carrosserie = carrosserie;
         this.carburant = carburant;
@@ -59,7 +56,6 @@ public class Model implements BaseColumns, Parcelable {
         designation = in.readString();
         modeleCommercial = in.readString();
         cnit = in.readString();
-        modeleDossier = in.readString();
         marque = in.readString();
         carrosserie = in.readString();
         carburant = in.readString();
@@ -112,14 +108,6 @@ public class Model implements BaseColumns, Parcelable {
 
     public void setCnit(String cnit) {
         this.cnit = cnit;
-    }
-
-    public String getModeleDossier() {
-        return modeleDossier;
-    }
-
-    public void setModeleDossier(String modeleDossier) {
-        this.modeleDossier = modeleDossier;
     }
 
     public String getMarque() {
@@ -197,7 +185,6 @@ public class Model implements BaseColumns, Parcelable {
         dest.writeString(designation);
         dest.writeString(modeleCommercial);
         dest.writeString(cnit);
-        dest.writeString(modeleDossier);
         dest.writeString(marque);
         dest.writeString(carrosserie);
         dest.writeString(carburant);

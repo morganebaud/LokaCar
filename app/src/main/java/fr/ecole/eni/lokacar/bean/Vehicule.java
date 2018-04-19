@@ -12,26 +12,26 @@ public class Vehicule implements Parcelable {
     private boolean isDispo;
 
     //private DetailsModel DetailsModel;
-    private Agence Agence;
+    private int codeAgence;
     private Model Model;
     private String Marque;
 
     public Vehicule() {
     }
 
-    public Vehicule(String marque, Model model,/* DetailsModel detailsModel,*/ String cnit, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath) {
+    public Vehicule(String marque, Model model,/* DetailsModel detailsModel,*/ String cnit, Float prix, String plaque, int codeAgence, boolean isDispo, String photoPath) {
         Marque = marque;
         Model = model;
         //DetailsModel = detailsModel;
         this.cnit = cnit;
         this.prix = prix;
         this.plaque = plaque;
-        Agence = agence;
+        this.codeAgence = codeAgence;
         this.isDispo = isDispo;
         this.photoPath = photoPath;
     }
 
-    public Vehicule(int id, String marque, Model model, /*DetailsModel detailsModel,*/ String CNIT, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath) {
+    public Vehicule(int id, String marque, Model model, /*DetailsModel detailsModel,*/ String CNIT, Float prix, String plaque, int codeAgence, boolean isDispo, String photoPath) {
         this.id = id;
         Marque = marque;
         Model = model;
@@ -39,7 +39,7 @@ public class Vehicule implements Parcelable {
         this.cnit = CNIT;
         this.prix = prix;
         this.plaque = plaque;
-        Agence = agence;
+        this.codeAgence = codeAgence;
         this.isDispo = isDispo;
         this.photoPath = photoPath;
     }
@@ -55,6 +55,8 @@ public class Vehicule implements Parcelable {
         plaque = in.readString();
         photoPath = in.readString();
         isDispo = in.readByte() != 0;
+        codeAgence = in.readInt();
+        Model = in.readParcelable(fr.ecole.eni.lokacar.bean.Model.class.getClassLoader());
         Marque = in.readString();
     }
 
@@ -71,6 +73,8 @@ public class Vehicule implements Parcelable {
         dest.writeString(plaque);
         dest.writeString(photoPath);
         dest.writeByte((byte) (isDispo ? 1 : 0));
+        dest.writeInt(codeAgence);
+        dest.writeParcelable(Model, flags);
         dest.writeString(Marque);
     }
 
@@ -99,30 +103,6 @@ public class Vehicule implements Parcelable {
         this.id = id;
     }
 
-    public String getMarque() {
-        return Marque;
-    }
-
-    public void setMarque(String marque) {
-        Marque = marque;
-    }
-
-    public Model getModel() {
-        return Model;
-    }
-
-    public void setModel(Model model) {
-        Model = model;
-    }
-    /*
-    public DetailsModel getDetailsModel() {
-        return DetailsModel;
-    }
-
-    public void setDetailsModel(DetailsModel detailsModel) {
-        DetailsModel = detailsModel;
-    }*/
-
     public String getCnit() {
         return cnit;
     }
@@ -147,12 +127,12 @@ public class Vehicule implements Parcelable {
         this.plaque = plaque;
     }
 
-    public Agence getAgence() {
-        return Agence;
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-    public void setAgence(Agence agence) {
-        Agence = agence;
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     public boolean isDispo() {
@@ -163,11 +143,27 @@ public class Vehicule implements Parcelable {
         isDispo = dispo;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
+    public int getCodeAgence() {
+        return codeAgence;
     }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
+    public void setCodeAgence(int codeAgence) {
+        this.codeAgence = codeAgence;
+    }
+
+    public fr.ecole.eni.lokacar.bean.Model getModel() {
+        return Model;
+    }
+
+    public void setModel(fr.ecole.eni.lokacar.bean.Model model) {
+        Model = model;
+    }
+
+    public String getMarque() {
+        return Marque;
+    }
+
+    public void setMarque(String marque) {
+        Marque = marque;
     }
 }

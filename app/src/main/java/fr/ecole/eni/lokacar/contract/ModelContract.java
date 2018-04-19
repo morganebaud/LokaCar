@@ -4,12 +4,11 @@ public abstract class ModelContract {
 
     public final static String MODELS_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "MODELS ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "DESIGNATION TEXT,"
             + "MODELE_COMMERCIAL TEXT,"
             + "CNIT TEXT,"
             + "MARQUE TEXT,"
-            + "MODELE_DOSSIER TEXT,"
             + "CARROSSERIE TEXT,"
             + "CARBURANT TEXT,"
             + "BOITEDEVITESSE TEXT,"
@@ -28,7 +27,6 @@ public abstract class ModelContract {
     public final static String _MODELE_COMMERCIAL = "MODELE_COMMERCIAL";
     public final static String _CNIT = "CNIT";
     public final static String _MARQUE = "MARQUE";
-    public final static String _MODELE_DOSSIER = "MODELE_DOSSIER";
     public final static String _CARROSSERIE = "CARROSSERIE";
     public final static String _CARBURANT = "CARBURANT";
     public final static String _BOITEDEVITESSE = "BOITEDEVITESSE";
