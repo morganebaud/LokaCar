@@ -23,7 +23,9 @@ public class LocationActivity extends AppCompatActivity {
             //associe la toolbar
             setSupportActionBar(toolbar);
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     @Override
