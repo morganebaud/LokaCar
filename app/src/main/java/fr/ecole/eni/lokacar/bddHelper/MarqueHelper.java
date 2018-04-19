@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import fr.ecole.eni.lokacar.contract.AgenceContract;
 import fr.ecole.eni.lokacar.contract.GlobalContract;
+import fr.ecole.eni.lokacar.contract.MarqueContract;
 
 public class MarqueHelper extends SQLiteOpenHelper {
     public MarqueHelper(Context context) {
@@ -14,12 +15,12 @@ public class MarqueHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(GlobalContract.AGENCES_CREATE_TABLE);
+        db.execSQL(MarqueContract.MARQUES_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(AgenceContract.QUERY_DELETE_TABLE_AGENCES);
+        db.execSQL(MarqueContract.QUERY_DELETE_TABLE_MARQUES);
         onCreate(db);
     }
 }

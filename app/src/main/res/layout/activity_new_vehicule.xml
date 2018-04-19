@@ -34,7 +34,7 @@
                 android:text="Marque" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/activity_newvehicule_spinMarque"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content" />
@@ -52,7 +52,7 @@
                 android:text="Modele" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/activity_newvehicule_spinModele"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content" />
@@ -70,7 +70,7 @@
                 android:text="CNIT" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/activity_newvehicule_etCnit"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -92,6 +92,52 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
+            android:text="Prix/jour en € : "
+
+            />
+
+        <EditText
+            android:id="@+id/activity_newvehicule_etPrix"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="prix" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="Numero Plaque : "
+
+            />
+
+        <EditText
+            android:id="@+id/activity_newvehicule_etPlaque"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Plaque" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
             android:text="Carrosserie : "
 
             />
@@ -100,7 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvCarrosserie"
+            android:id="@+id/activity_newvehicule_tvCarosserie"
             tools:hint="carrosserie"
             />
 
@@ -116,7 +162,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
-            android:text="Puis. Fiscale : "
+            android:text="Puis. Administrative : "
 
             />
 
@@ -124,7 +170,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvPuissance"
+            android:id="@+id/activity_newvehicule_tvPuissance"
             tools:hint="puissance"
             />
 
@@ -148,7 +194,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvCarburant"
+            android:id="@+id/activity_newvehicule_tvCarburant"
             tools:hint="carburant"
             />
 
@@ -172,7 +218,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvConsEU"
+            android:id="@+id/activity_newvehicule_tvConsoExU"
             tools:hint="extra urbain"
             />
 
@@ -196,7 +242,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvConsU"
+            android:id="@+id/activity_newvehicule_tvConsoUrb"
             tools:hint="urbain"
             />
 
@@ -220,11 +266,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:id="@+id/tvConsM"
+            android:id="@+id/activity_newvehicule_tvConsoMixte"
             tools:hint="mixte"
             />
 
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:backgroundTint="@color/colorAmber900"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="newVehiculeClick"
+        />
 
 
 </LinearLayout>
