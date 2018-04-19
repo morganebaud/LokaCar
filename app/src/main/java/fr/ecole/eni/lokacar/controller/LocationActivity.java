@@ -24,7 +24,10 @@ public class LocationActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

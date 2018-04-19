@@ -1,354 +1,336 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".controller.NewVehiculeActivity"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <include layout="@layout/toolbar_perso" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        />
-
-    <TableLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAmber500">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".controller.NewVehiculeActivity">
 
-        <TableRow
+        <include layout="@layout/toolbar_perso" />
+
+        <ImageView
+            android:id="@+id/activity_newvehicule_imgVehicule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/ic_launcher_round"/>
+            <!--android:onClick="onImageClick"-->
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content"
+            android:background="@color/colorAmber500">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/activity_newvehicule_tvMarque"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Marque" />
+
+                <Spinner
+                    android:id="@+id/activity_newvehicule_spinMarque"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/activity_newvehicule_tvModele"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Modele" />
+
+                <Spinner
+                    android:id="@+id/activity_newvehicule_spinModele"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/activity_newvehicule_tvCnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="CNIT" />
+
+                <TextView
+                    android:id="@+id/activity_newvehicule_etCnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="CNIT" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/activity_newvehicule_tvMarque"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="wrap_content"
-                android:text="Marque" />
+                android:layout_weight="0.4"
+                android:text="Prix/jour en € : "
 
-            <Spinner
-                android:id="@+id/activity_newvehicule_spinMarque"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
                 />
-        </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/activity_newvehicule_tvModele"
+            <EditText
+                android:id="@+id/activity_newvehicule_etPrix"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="wrap_content"
-                android:text="Modele" />
-
-            <Spinner
-                android:id="@+id/activity_newvehicule_spinModele"
-                android:layout_width="0dp"
                 android:layout_weight="0.5"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/activity_newvehicule_tvCnit"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                android:text="CNIT" />
-
-            <TextView
-                android:id="@+id/activity_newvehicule_etCnit"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:text="CNIT" />
+                android:hint="prix"
+                android:inputType="text" />
 
-        </TableRow>
+        </LinearLayout>   <!-- Prix  -->
 
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Prix/jour en € : "
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:orientation="horizontal">
 
-            />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Numero Plaque : "
 
-        <EditText
-            android:id="@+id/activity_newvehicule_etPrix"
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
+                />
+
+            <EditText
+                android:id="@+id/activity_newvehicule_etPlaque"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:hint="Plaque"
+                android:inputType="text" />
+
+        </LinearLayout>     <!--  Plaque -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="prix" />
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>   <!-- Prix  -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Modele Commercial : "
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
+                />
+
+            <TextView
+                android:id="@+id/activity_newvehicule_tvmodeleCommercial"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="modele commercial" />
+
+        </LinearLayout>    <!--  Model commercial -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Numero Plaque : "
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:orientation="horizontal">
 
-            />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Carrosserie : "
 
-        <EditText
-            android:id="@+id/activity_newvehicule_etPlaque"
-            android:layout_width="0dp"
-            android:layout_weight="0.5"
+                />
+
+            <TextView
+                android:id="@+id/activity_newvehicule_tvCarosserie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="carrosserie" />
+
+        </LinearLayout>    <!--  Carroserie -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Plaque" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>     <!--  Plaque -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Carburant : "
 
+                />
 
-    modeleCommercial
-    carrosserie
-    carburant
-    boiteDeVitesse
-    puissanceAdministrative
-    consommationUrbaine
-    consommationExtraUrbaine
-    consommationMixte
+            <TextView
+                android:id="@+id/activity_newvehicule_tvCarburant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="carburant" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_10dp"
-        android:orientation="horizontal">
+        </LinearLayout>    <!--  carburant -->
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Modele Commercial : "
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Boite de vitesse : "
 
-        <TextView
-            android:layout_width="0dp"
+                />
+
+            <TextView
+                android:id="@+id/activity_newvehicule_tvBoiteDeVitesse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="boite de vitesse" />
+
+        </LinearLayout>    <!--  boite vitesse -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvmodeleCommercial"
-            tools:hint="modele commercial"
-            />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>    <!--  Model commercial -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Puis. Administrative : "
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_10dp"
-        android:orientation="horizontal">
+                />
 
-        <TextView
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/activity_newvehicule_tvPuissance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="puissance" />
+
+        </LinearLayout>    <!--  puiss admin -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Carrosserie : "
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Conso. Extra Urbain : "
 
-        <TextView
-            android:layout_width="0dp"
+                />
+
+            <TextView
+                android:id="@+id/activity_newvehicule_tvConsoExU"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="extra urbain" />
+
+        </LinearLayout>    <!--  conso extra urb -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvCarosserie"
-            tools:hint="carrosserie"
-            />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>    <!--  Carroserie -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Conso. Urbain : "
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+                />
 
-        <TextView
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/activity_newvehicule_tvConsoUrb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="urbain" />
+
+        </LinearLayout>    <!--  conso urb -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Carburant : "
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Conso. Mixte : "
 
-        <TextView
-            android:layout_width="0dp"
+                />
+
+            <TextView
+                android:id="@+id/activity_newvehicule_tvConsoMixte"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                tools:hint="mixte" />
+
+        </LinearLayout>    <!--  conso mixt -->
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvCarburant"
-            tools:hint="carburant"
-            />
-
-    </LinearLayout>    <!--  carburant -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Boite de vitesse : "
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvBoiteDeVitesse"
-            tools:hint="boite de vitesse"
-            />
-
-    </LinearLayout>    <!--  boite vitesse -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Puis. Administrative : "
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvPuissance"
-            tools:hint="puissance"
-            />
-
-    </LinearLayout>    <!--  puiss admin -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Conso. Extra Urbain : "
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvConsoExU"
-            tools:hint="extra urbain"
-            />
-
-    </LinearLayout>    <!--  conso extra urb -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Conso. Urbain : "
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvConsoUrb"
-            tools:hint="urbain"
-            />
-
-    </LinearLayout>    <!--  conso urb -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:text="Conso. Mixte : "
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:id="@+id/activity_newvehicule_tvConsoMixte"
-            tools:hint="mixte"
-            />
-
-    </LinearLayout>    <!--  conso mixt -->
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorAmber900"
+            android:clickable="true"
+            android:onClick="newVehiculeClick"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
 
-
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:backgroundTint="@color/colorAmber900"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:onClick="newVehiculeClick"
-        />
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

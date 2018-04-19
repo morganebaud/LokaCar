@@ -1,15 +1,26 @@
 package fr.ecole.eni.lokacar.controller;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
@@ -25,11 +36,17 @@ public class NewVehiculeActivity extends AppCompatActivity {
     MarqueDao marqueDao;
     ModelDao modeleDao;
     Marque marqueSelected;
+    boolean canTakePhoto = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_vehicule);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            canTakePhoto = false;
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+        }
 
         vehiculeDao = new VehiculeDao(NewVehiculeActivity.this);
         marqueDao = new MarqueDao(NewVehiculeActivity.this);
@@ -101,6 +118,15 @@ public class NewVehiculeActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 0) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                canTakePhoto = true;
+            }
+        }
+    }
 
     public void newVehiculeClick(View view) {
 /*
@@ -120,12 +146,51 @@ public class NewVehiculeActivity extends AppCompatActivity {
         String plaque = ((TextView) findViewById(R.id.activity_newvehicule_etPlaque)).getText().toString();
         int codeAgence = 1; // a modifier par le code agence de l'agence connecter emmeorisée dans sharedpreferences;
         boolean isDispo = true;
-        String photoPath = "";
+        String photoPath = file != null ? file.getPath() : "";
 
 
         Vehicule vehiculeToAdd = new Vehicule(marque, model, cnit, prix, plaque, codeAgence, isDispo, photoPath);
         vehiculeDao.insert(vehiculeToAdd);
         Intent intent = new Intent(NewVehiculeActivity.this, VehiculesActivity.class);
         startActivity(intent);
+    }
+
+    File file;
+    Uri fileUri;
+
+    public void onImageClick(View view) {
+        if (canTakePhoto) {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            file = getOutputMediaFile();
+            fileUri = Uri.fromFile(file);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+            startActivityForResult(intent, 100);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                ((ImageView) findViewById(R.id.activity_newvehicule_imgVehicule)).setImageURI(fileUri);
+
+            }
+        }
+    }
+
+    public static File getOutputMediaFile() {
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "CameraDemo");
+
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return new File(mediaStorageDir.getPath() + File.separator +
+                "IMG_" + timeStamp + ".jpg");
     }
 }
