@@ -17,9 +17,9 @@ import fr.ecole.eni.lokacar.fragment.DetailFragment;
 import fr.ecole.eni.lokacar.fragment.VehiculesFragment;
 
 public class VehiculesActivity extends AppCompatActivity
-        implements /*ActivityMessage,*/
+        implements
         VehiculesFragment.OnListFragmentInteractionListener,
-        DetailFragment.OnFragmentInteractionListener{
+        DetailFragment.OnFragmentInteractionListener {
 
     private List<Vehicule> mVehicules;
     private VehiculesFragment mVehiculesFragment;
@@ -33,14 +33,10 @@ public class VehiculesActivity extends AppCompatActivity
         mVehiculesFragment = (VehiculesFragment) getSupportFragmentManager().findFragmentById(R.id.vehiculesFragment);
         mDetailFragment = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentDetail);
 
-        //mVehicules = new ArrayList<Vehicule>();
-        //mVehicules.add(new Vehicule("Peugeot", new Model("308","Peugeot 308",null,null,null),null,null, 15.6f,null,null,false,null));
-        //mVehicules.add(new Vehicule("Citroen",  new Model("C3","Citroen C3",null,null,null),null,null, 8.30f,null,null,false,null));
-
         Intent intent = getIntent();
         mVehicules = intent.getParcelableArrayListExtra("resultats");
 
-        if(mVehiculesFragment != null && mVehiculesFragment.isInLayout()){
+        if (mVehiculesFragment != null && mVehiculesFragment.isInLayout()) {
             setAdapterListe();
         }
     }
@@ -55,18 +51,17 @@ public class VehiculesActivity extends AppCompatActivity
         Model detail = item.getModel();
         //Model detail = new Model(0,"manuelle", 0, 0,0, "bleue", null,"essence", 0, 0,null,null,null);
 
-        if(detail == null){
+        if (detail == null) {
             Toast.makeText(VehiculesActivity.this, "Erreur dans le chargement du détail", Toast.LENGTH_LONG).show();
-        }
-        else {
+        } else {
             chargeDetail(detail);
         }
     }
 
     /*
-     * affiche le détail ou l'activité
+     * Affiche le détail ou l'activité
      */
-    private void chargeDetail(Model detail){
+    private void chargeDetail(Model detail) {
         if (mDetailFragment != null && mDetailFragment.isInLayout()) {
             mDetailFragment.chargeDetail(detail);
         } else {
@@ -76,8 +71,8 @@ public class VehiculesActivity extends AppCompatActivity
         }
     }
 
-    //Renseigne la liste au fragment contenant le RecyclerView
-    private void setAdapterListe(){
+    // Renseigne la liste au fragment contenant le RecyclerView
+    private void setAdapterListe() {
         mVehiculesFragment.setAdapter(new VehiculesRecyclerViewAdapter(mVehicules, VehiculesActivity.this));
     }
 }

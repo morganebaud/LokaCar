@@ -7,11 +7,11 @@
     android:orderInCategory="10"
     app:showAsAction="always"/>
 
-    <item
+    <!--item
         android:id="@+id/menu_newLoc"
         android:title="Nouvelle location"
         android:orderInCategory="10"
-        app:showAsAction="always"/>
+        app:showAsAction="always"/-->
 
     <item
         android:id="@+id/menu_finance"
@@ -34,6 +34,12 @@
     <item
         android:id="@+id/menu_listVehicules"
         android:title="Liste des vehicules"
+        android:orderInCategory="10"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_deconnexion"
+        android:title="Se déconnecter"
         android:orderInCategory="10"
         app:showAsAction="always"/>
 
