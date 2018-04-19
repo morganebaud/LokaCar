@@ -5,7 +5,7 @@ public abstract class VehiculeContract {
 
     public final static String VEHICULES_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS "
             + "VEHICULES ("
-            + "ID INTEGER PRIMARY KEY , "
+            + "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "CNIT TEXT , "
             + "PRIX DOUBLE , "
             + "PLAQUE TEXT , "

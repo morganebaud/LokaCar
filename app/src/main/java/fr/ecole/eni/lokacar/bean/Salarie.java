@@ -12,6 +12,15 @@ public class Salarie {
     public Salarie() {
     }
 
+    public Salarie(String nom, String prenom, String mail, String mdp, boolean isGerant, int codeAgence) {
+        Nom = nom;
+        Prenom = prenom;
+        Mail = mail;
+        Mdp = mdp;
+        IsGerant = isGerant;
+        CodeAgence = codeAgence;
+    }
+
     public Salarie(int id, String nom, String prenom, String mail, String mdp, boolean isGerant, int codeAgence) {
         Id = id;
         Nom = nom;

@@ -22,7 +22,6 @@ public class AgenceDao {
 
     private ContentValues constructValuesDB(Agence agence) {
         ContentValues values = new ContentValues();
-        //values.put(AgenceContract._AGENCE_ID, agence.getId());
         values.put(AgenceContract._CODEAGENCE, agence.getCodeAgence());
         values.put(AgenceContract._NOM, agence.getNom());
         values.put(AgenceContract._VILLE, agence.getVille());

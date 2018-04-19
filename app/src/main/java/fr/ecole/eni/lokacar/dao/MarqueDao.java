@@ -20,7 +20,6 @@ public class MarqueDao {
 
     private ContentValues constructValuesDB(Marque marque) {
         ContentValues values = new ContentValues();
-        //values.put(MarqueContract._MARQUE_ID, marque.getId());
         values.put(MarqueContract._NOM, marque.getNom());
         return values;
     }

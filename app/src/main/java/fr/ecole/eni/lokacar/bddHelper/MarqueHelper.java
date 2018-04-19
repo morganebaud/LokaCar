@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import fr.ecole.eni.lokacar.bean.Marque;
 import fr.ecole.eni.lokacar.contract.AgenceContract;
 import fr.ecole.eni.lokacar.contract.GlobalContract;
 import fr.ecole.eni.lokacar.contract.MarqueContract;

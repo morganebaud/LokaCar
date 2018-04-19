@@ -22,7 +22,6 @@ public class SalarieDao {
 
     private ContentValues constructValuesDB(Salarie salarie) {
         ContentValues values = new ContentValues();
-        values.put(SalarieContract._SALARIES_ID , salarie.getId());
         values.put(SalarieContract._NOM , salarie.getNom());
         values.put(SalarieContract._PRENOM , salarie.getPrenom());
         values.put(SalarieContract._MAIL ,salarie.getMail());
