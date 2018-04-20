@@ -7,12 +7,21 @@ public class Client {
     private String Mail;
     private String Ville;
     private String Telephone;
-    private int CodePostal;
+    private String CodePostal;
 
     public Client() {
     }
 
-    public Client(int id, String nom, String prenom, String mail, String ville, String telephone, int codePostal) {
+    public Client(String nom, String prenom, String mail, String ville, String telephone, String codePostal) {
+        Nom = nom;
+        Prenom = prenom;
+        Mail = mail;
+        Ville = ville;
+        Telephone = telephone;
+        CodePostal = codePostal;
+    }
+
+    public Client(int id, String nom, String prenom, String mail, String ville, String telephone, String codePostal) {
         Id = id;
         Nom = nom;
         Prenom = prenom;
@@ -70,11 +79,11 @@ public class Client {
         Telephone = telephone;
     }
 
-    public int getCodePostal() {
+    public String getCodePostal() {
         return CodePostal;
     }
 
-    public void setCodePostal(int codePostal) {
+    public void setCodePostal(String codePostal) {
         CodePostal = codePostal;
     }
 }

@@ -149,7 +149,7 @@ public class NewVehiculeActivity extends AppCompatActivity {
         String photoPath = file != null ? file.getPath() : "";
 
 
-        Vehicule vehiculeToAdd = new Vehicule(marque, model, cnit, prix, plaque, codeAgence, isDispo, photoPath);
+        Vehicule vehiculeToAdd = new Vehicule(marque, model, cnit, prix, plaque, codeAgence, isDispo, photoPath,0);
         vehiculeDao.insert(vehiculeToAdd);
         Intent intent = new Intent(NewVehiculeActivity.this, VehiculesActivity.class);
         startActivity(intent);

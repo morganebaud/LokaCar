@@ -3,70 +3,78 @@ package fr.ecole.eni.lokacar.bean;
 import java.util.Date;
 
 public class Location {
-    private int Id;
-    private int NumFiche;
-    private Client Client;
-    private Vehicule vehicule;
-    private Date DateDebut;
-    private Date DateFin;
+    private int id;
+    private int idClient;
+    private int idVehicule;
+    private Date dateDebut;
+    private Date dateFin;
+    private Boolean isVehiculeRendu;
 
     public Location() {
     }
 
-    public Location(int id, int numFiche, fr.ecole.eni.lokacar.bean.Client client, Vehicule vehicule, Date dateDebut, Date dateFin) {
-        Id = id;
-        NumFiche = numFiche;
-        Client = client;
-        this.vehicule = vehicule;
-        DateDebut = dateDebut;
-        DateFin = dateFin;
+    public Location(int idClient, int idVehicule, Date dateDebut, Date dateFin, Boolean isVehiculeRendu) {
+        this.idClient = idClient;
+        this.idVehicule = idVehicule;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.isVehiculeRendu = isVehiculeRendu;
+    }
+
+    public Location(int id, int idClient, int idVehicule, Date dateDebut, Date dateFin, Boolean isVehiculeRendu) {
+        this.id = id;
+        this.idClient = idClient;
+        this.idVehicule = idVehicule;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.isVehiculeRendu = isVehiculeRendu;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
-    public int getNumFiche() {
-        return NumFiche;
+    public int getIdClient() {
+        return idClient;
     }
 
-    public void setNumFiche(int numFiche) {
-        NumFiche = numFiche;
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 
-    public fr.ecole.eni.lokacar.bean.Client getClient() {
-        return Client;
+    public int getIdVehicule() {
+        return idVehicule;
     }
 
-    public void setClient(fr.ecole.eni.lokacar.bean.Client client) {
-        Client = client;
-    }
-
-    public Vehicule getVehicule() {
-        return vehicule;
-    }
-
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
+    public void setIdVehicule(int idVehicule) {
+        this.idVehicule = idVehicule;
     }
 
     public Date getDateDebut() {
-        return DateDebut;
+        return dateDebut;
     }
 
     public void setDateDebut(Date dateDebut) {
-        DateDebut = dateDebut;
+        this.dateDebut = dateDebut;
     }
 
     public Date getDateFin() {
-        return DateFin;
+        return dateFin;
     }
 
     public void setDateFin(Date dateFin) {
-        DateFin = dateFin;
+        this.dateFin = dateFin;
+    }
+
+    public Boolean getVehiculeRendu() {
+        return isVehiculeRendu;
+    }
+
+    public void setVehiculeRendu(Boolean vehiculeRendu) {
+        isVehiculeRendu = vehiculeRendu;
     }
 }
