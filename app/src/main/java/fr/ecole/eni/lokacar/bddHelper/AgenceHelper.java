@@ -5,7 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import fr.ecole.eni.lokacar.contract.AgenceContract;
+import fr.ecole.eni.lokacar.contract.ClientContract;
 import fr.ecole.eni.lokacar.contract.GlobalContract;
+import fr.ecole.eni.lokacar.contract.LocationContract;
 
 public class AgenceHelper extends SQLiteOpenHelper {
 
@@ -20,6 +22,8 @@ public class AgenceHelper extends SQLiteOpenHelper {
         db.execSQL(GlobalContract.VEHICULES_CREATE_TABLE);
         db.execSQL(GlobalContract.MODELS_CREATE_TABLE);
         db.execSQL(GlobalContract.MARQUES_CREATE_TABLE);
+        db.execSQL(LocationContract.LOCATION_CREATE_TABLE);
+        db.execSQL(ClientContract.CLIENT_CREATE_TABLE);
     }
 
     @Override

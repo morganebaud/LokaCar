@@ -6,16 +6,24 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import fr.ecole.eni.lokacar.bddHelper.VehiculeHelper;
+import fr.ecole.eni.lokacar.bean.Location;
 import fr.ecole.eni.lokacar.bean.Vehicule;
+import fr.ecole.eni.lokacar.contract.LocationContract;
 import fr.ecole.eni.lokacar.contract.VehiculeContract;
 import fr.ecole.eni.lokacar.bean.Agence;
 import fr.ecole.eni.lokacar.bean.Model;
 
 public class VehiculeDao {
+
+    ModelDao modelDao;
 
     private VehiculeHelper dbhelper;
 
@@ -44,6 +52,36 @@ public class VehiculeDao {
         db.close();
 
         return id;
+    }
+
+    public Vehicule getById(int id, Context context) throws ParseException {
+        modelDao = new ModelDao(context);
+
+        SQLiteDatabase db = dbhelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                VehiculeContract.TABLE_VEHICULES_NAME, null,
+                VehiculeContract._VEHICULES_ID + "=?",
+                new String[]{String.valueOf(id)},
+                null,
+                null,
+                null);
+
+        Vehicule object = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            String marque = cursor.getString(cursor.getColumnIndex(VehiculeContract._MARQUE));
+            String cnit = cursor.getString(cursor.getColumnIndex(VehiculeContract._CNIT));
+            Model model = modelDao.getByCnit(cnit);
+            Float prix = cursor.getFloat(cursor.getColumnIndex(VehiculeContract._PRIX));
+            String plaque = cursor.getString(cursor.getColumnIndex(VehiculeContract._PLAQUE));
+            int agence = cursor.getInt(cursor.getColumnIndex(VehiculeContract._CODEAGENCE));
+            boolean isDispo = cursor.getInt(cursor.getColumnIndex(VehiculeContract._ISDISPO)) == 1 ? true : false;
+            String photoPath = cursor.getString(cursor.getColumnIndex(VehiculeContract._PHOTOPATH));
+
+            object = new Vehicule(id, marque, model, cnit, prix, plaque, agence, isDispo, photoPath,0);
+            cursor.close();
+        }
+        return object;
     }
 
     public List<Vehicule> getListe(Context context) {

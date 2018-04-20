@@ -10,7 +10,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,6 +46,14 @@ public class NewVehiculeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_vehicule);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if(toolbar != null){
+            //associe la toolbar
+            setSupportActionBar(toolbar);
+        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             canTakePhoto = false;
@@ -192,5 +204,51 @@ public class NewVehiculeActivity extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         return new File(mediaStorageDir.getPath() + File.separator +
                 "IMG_" + timeStamp + ".jpg");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = new MenuInflater(NewVehiculeActivity.this);
+
+        inflater.inflate(R.menu.main_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()){
+            case    R.id.menu_locenCours :
+                //Intent intent = new Intent(MainActivity.this,);
+                //startActivity(intent);
+                break;
+
+            case R.id.menu_finance :
+                //Intent intent = new Intent(MainActivity.this,);
+                //startActivity(intent);
+                break;
+
+            case R.id.menu_newVehicule :
+                intent = new Intent(NewVehiculeActivity.this, NewVehiculeActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.menu_search :
+                intent = new Intent(NewVehiculeActivity.this,SearchActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.menu_listVehicules :
+                intent = new Intent(NewVehiculeActivity.this,VehiculesActivity.class);
+                VehiculeDao vehiculeDao = new VehiculeDao(NewVehiculeActivity.this);
+                intent.putParcelableArrayListExtra("resultats", vehiculeDao.getListeBySearch(NewVehiculeActivity.this,null));
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

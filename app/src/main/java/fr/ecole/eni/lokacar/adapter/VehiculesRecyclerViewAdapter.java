@@ -53,7 +53,7 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
      * @param position
      */
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mModele.setText(mVehicules.get(position).getMarque());
 
         holder.mItem = mVehicules.get(position);
@@ -66,7 +66,7 @@ public class VehiculesRecyclerViewAdapter extends Adapter<VehiculesRecyclerViewA
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), LocationActivity.class);
-
+                    intent.putExtra("idVehicule", mVehicules.get(position).getId());
                     v.getContext().startActivity(intent);
                 }
             });
