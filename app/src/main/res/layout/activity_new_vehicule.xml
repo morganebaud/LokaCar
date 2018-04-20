@@ -18,7 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:srcCompat="@mipmap/ic_launcher_round"/>
+            app:srcCompat="@drawable/car_model"
+            android:background="@color/colorAmber800"
+            android:padding="@dimen/padding_10dp"/>
             <!--android:onClick="onImageClick"-->
         <TableLayout
             android:layout_width="match_parent"
@@ -319,6 +321,12 @@
 
         </LinearLayout>    <!--  conso mixt -->
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"

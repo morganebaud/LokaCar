@@ -15,10 +15,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Date;
 import java.util.List;
 
 import fr.ecole.eni.lokacar.R;
 import fr.ecole.eni.lokacar.bean.Agence;
+import fr.ecole.eni.lokacar.bean.Client;
+import fr.ecole.eni.lokacar.bean.Location;
 import fr.ecole.eni.lokacar.bean.Marque;
 import fr.ecole.eni.lokacar.bean.Model;
 import fr.ecole.eni.lokacar.bean.Salarie;
@@ -81,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
             // marque, Model model,/* DetailsModel detailsModel,*/ String cnit, Float prix, String plaque, Agence agence, boolean isDispo, String photoPath
             vehiculeDao.insert(new Vehicule("MEGANE", modelDao.getByCnit("123"), "123", 30.61f, "AF-68-RT", 1, true, null));
             vehiculeDao.insert(new Vehicule("VIPER", modelDao.getByCnit("456"), "456", 700f, "JN-54-AZ", 1, false, null));
+
+            clientDao.insert(new Client("Dupont","Dupond","d@d.fr","0299147578","Nantes","44000"));
+            clientDao.insert(new Client("Emmanuel","Marron","e@m.fr","0202020202","Paris","75000"));
+
+            locationDao.insert(new Location(1,1,new Date(01/02/2018),new Date(04/12/2018),false));
+            locationDao.insert(new Location(2,2,new Date(04/06/2018),new Date(05/07/2018),false));
         }
         // ------------------
 
