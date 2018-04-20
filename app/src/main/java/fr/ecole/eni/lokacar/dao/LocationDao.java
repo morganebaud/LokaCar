@@ -67,4 +67,33 @@ public class LocationDao {
         return object;
     }
 
+    public Location getByIdVehicule(int idVehicule) throws ParseException {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                LocationContract.TABLE_LOCATION_NAME, null,
+                LocationContract._ID_VEHICULE + "=?",
+                new String[]{String.valueOf(idVehicule)},
+                null,
+                null,
+                null);
+
+        Location object = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndex(LocationContract._LOCATION_ID));
+            int idClient = cursor.getInt(cursor.getColumnIndex(LocationContract._ID_CLIENT));
+            String dateDebut = cursor.getString(cursor.getColumnIndex(LocationContract._DATE_DEBUT));
+            String dateFin = cursor.getString(cursor.getColumnIndex(LocationContract._DATE_FIN));
+            Boolean isVehiculeRendu = cursor.getInt(cursor.getColumnIndex(LocationContract._IS_VEHICULE_RENDU)) == 1;
+
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date dDebut = df.parse(dateDebut);
+            Date dFin = df.parse(dateFin);
+
+            object = new Location(id, idClient, idVehicule, dDebut, dFin, isVehiculeRendu);
+            cursor.close();
+        }
+        return object;
+    }
+
 }

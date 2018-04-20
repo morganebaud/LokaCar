@@ -212,7 +212,6 @@
         android:layout_gravity="center"
         android:text="Valider Retour"
         android:background="@drawable/btn_custom"
-        android:enabled="false"
         android:onClick="onRetourClick"
         />
 </LinearLayout>

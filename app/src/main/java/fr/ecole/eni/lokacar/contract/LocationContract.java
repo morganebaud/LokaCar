@@ -8,7 +8,7 @@ public class LocationContract {
             + "ID_VEHICULE INTEGER, "
             + "DATE_DEBUT DATETIME, "
             + "DATE_FIN DATETIME, "
-            + "IS_VEHICULE_RENDU INTEGER, "
+            + "IS_VEHICULE_RENDU INTEGER "
             + ")";
 
     public final static String TABLE_LOCATION_NAME = "LOCATION";
