@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             marqueDao.Insert(new Marque("Dodge"));
             marqueDao.Insert(new Marque("Ford"));
 
-            // String designation, String modeleCommercial, String cnit, String marque, String carrosserie, String carburant, String boiteDeVitesse, int puissanceAdministrative, double consommationUrbaine, double consommationExtraUrbaine, double consommationMixte
             modelDao.insert(new Model("MEGANE Berline Akaju EnergydCi (130ch) eco2", "MEGANE", "123", "RENAULT", "BERLINE", "GO", "M6", 7, 5, 3.9, 4.3));
             modelDao.insert(new Model("CLIO sport RCI (230ch)", "CLIO", "789", "RENAULT", "COMPACT", "ES", "M6", 6, 4.6, 3.2, 3.8));
 
@@ -90,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
 
             locationDao.insert(new Location(1,1,new Date(01/02/2018),new Date(04/12/2018),false));
             locationDao.insert(new Location(2,2,new Date(04/06/2018),new Date(05/07/2018),false));
+            // String cnit, Float prix, String plaque, String photoPath, boolean isDispo, int km, int codeAgence, fr.ecole.eni.lokacar.bean.Model model, String marque
+            vehiculeDao.insert(new Vehicule("MEGANE", modelDao.getByCnit("123"), "123", 30.61f, "AF-68-RT", 1, true, null, 0));
+            vehiculeDao.insert(new Vehicule("VIPER", modelDao.getByCnit("456"), "456", 700f, "JN-54-AZ", 1, false, null, 120));
         }
         // ------------------
 

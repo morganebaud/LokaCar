@@ -73,7 +73,7 @@ public class VehiculeDao {
                 String photoPath = cursor.getString(cursor.getColumnIndex(VehiculeContract._PHOTOPATH));
 
                 objects.add(new Vehicule(id, marque, model, cnit, prix, plaque,
-                        agence, isDispo, photoPath));
+                        agence, isDispo, photoPath,0));
 
             } while (cursor.moveToNext());
 
@@ -154,7 +154,7 @@ public class VehiculeDao {
                 String photoPath = cursor.getString(cursor.getColumnIndex(VehiculeContract._PHOTOPATH));
 
                 objects.add(new Vehicule(id, marque, model, cnit, prix, plaque,
-                        agence, isDispo, photoPath));
+                        agence, isDispo, photoPath,0));
 
             } while (cursor.moveToNext());
 
